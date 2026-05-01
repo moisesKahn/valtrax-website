@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<title>VALTRAX Industrial SPA — Insumos para la Minería del Norte de Chile</title>
+<meta name="description" content="VALTRAX es tu partner estratégico en la provisión de insumos industriales, ferretería y equipamiento para la minería. Respondemos donde y cuando la operación lo exige.">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- Stylesheets -->
+<link href="assets/css/font-awesome-all.css" rel="stylesheet">
+<link href="assets/css/flaticon.css" rel="stylesheet">
+<link href="assets/css/owl.css" rel="stylesheet">
+<link href="assets/css/bootstrap.css" rel="stylesheet">
+<link href="assets/css/jquery.fancybox.min.css" rel="stylesheet">
+<link href="assets/css/animate.css" rel="stylesheet">
+<link href="assets/css/aos.css" rel="stylesheet">
+<link href="assets/css/odometer.css" rel="stylesheet">
+<link href="assets/css/elpath.css" rel="stylesheet">
+<link href="assets/css/satoshi-font.css" rel="stylesheet">
+<link href="assets/css/style.css" rel="stylesheet">
+<link href="assets/css/module-css/header.css" rel="stylesheet">
+<link href="assets/css/module-css/footer.css" rel="stylesheet">
+<link href="assets/css/module-css/process.css" rel="stylesheet">
+<link href="assets/css/module-css/clients.css" rel="stylesheet">
+<link href="assets/css/module-css/faq.css" rel="stylesheet">
+<link href="assets/css/module-css/cta.css" rel="stylesheet">
+<link href="assets/css/module-css/chooseus.css" rel="stylesheet">
+<link href="assets/css/responsive.css" rel="stylesheet">
+
+<style>
+  /* ─── VALTRAX COLOR OVERRIDE ─── */
+  :root {
+    --theme-color: #1d4370;
+    --theme-color-2: #0F2D50;
+    --secondary-color: #0D1821;
+    --text-color: rgba(15,25,40,0.72);
+    --title-color: #0D1821;
+    --text-font: 'Satoshi', 'Outfit', sans-serif;
+    --title-font: 'Outfit', sans-serif;
+    --valtrax-blue: #1d4370;
+    --valtrax-blue-dark: #0F2D50;
+    --valtrax-steel: #8B9BAD;
+    --valtrax-dark: #0D1821;
+    --valtrax-light: #F4F6F9;
+    --valtrax-accent: #D4E3F5;
+  }
+
+  /* ─── PRELOADER ─── */
+  .letters-loading { font-family: 'Outfit', sans-serif; letter-spacing: 6px; font-weight: 800; }
+  /* deep dark background, very subtle animated halo, noise to kill banding */
+  .handle-preloader {
+    background: #050B14 !important;
+    overflow: hidden;
+    transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .handle-preloader::before,
+  .handle-preloader::after {
+    content: '';
+    position: absolute;
+    inset: -25%;
+    pointer-events: none;
+    z-index: 1;
+  }
+  /* main soft halo */
+  .handle-preloader::before {
+    background:
+      radial-gradient(ellipse 55% 50% at 50% 50%, rgba(30,75,140,0.32) 0%, rgba(20,50,95,0.14) 35%, rgba(10,25,50,0.05) 60%, transparent 80%);
+    filter: blur(60px);
+    animation: vxBgPulse 9s ease-in-out infinite alternate;
+  }
+  /* noise overlay (SVG fractal) — breaks color banding */
+  .handle-preloader::after {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    background-size: 240px 240px;
+    opacity: 0.55;
+    mix-blend-mode: overlay;
+    animation: vxNoiseShift 6s steps(8) infinite;
+  }
+  @keyframes vxBgPulse {
+    0%   { transform: scale(1) translate(0, 0); opacity: 0.85; }
+    100% { transform: scale(1.1) translate(1.5%, -0.5%); opacity: 1; }
+  }
+  @keyframes vxNoiseShift {
+    0%   { background-position: 0 0; }
+    100% { background-position: 240px 120px; }
+  }
+  /* fade-out class triggered before redirect/show home */
+  .handle-preloader.vx-fade-out { opacity: 0; }
+  .handle-preloader.vx-fade-out .preloader-logo-svg { transform: scale(1.04); transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1); }
+
+  .handle-preloader .loader-section { display: none !important; }
+  .handle-preloader .animation-preloader .spinner { display: none !important; }
+  .handle-preloader .animation-preloader {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 760px;
+    padding: 0 24px;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    opacity: 1 !important;
+    z-index: 2;
+  }
+  .preloader .loaded .animation-preloader { opacity: 1 !important; }
+
+  .preloader-logo-svg {
+    width: 100%;
+    max-width: 680px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    overflow: visible;
+    transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.9s ease;
+  }
+  /* All shapes use pathLength="100" so timing is uniform */
+  .preloader-logo-svg .vx-shape {
+    fill: transparent;
+    stroke: #ffffff;
+    stroke-width: 1.2;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    animation: vxDraw 2.0s cubic-bezier(0.65, 0, 0.35, 1) forwards,
+               vxFillBlue 0.7s ease-out 1.85s forwards;
+  }
+  .preloader-logo-svg .vx-shape.gray { animation-name: vxDraw, vxFillGray; }
+  .preloader-logo-svg .vx-shape.tiny { stroke-width: 0.7; }
+  .preloader-logo-svg .vx-shape.d1 { animation-delay: 0s, 1.85s; }
+  .preloader-logo-svg .vx-shape.d2 { animation-delay: 0.15s, 2.0s; }
+  .preloader-logo-svg .vx-shape.d3 { animation-delay: 0.3s, 2.15s; }
+
+  @keyframes vxDraw {
+    0%   { stroke-dashoffset: 100; }
+    100% { stroke-dashoffset: 0; }
+  }
+  @keyframes vxFillBlue {
+    0%   { fill: transparent; stroke-width: 1.2; }
+    100% { fill: #2A6BB8; stroke-width: 0; stroke: transparent; }
+  }
+  @keyframes vxFillGray {
+    0%   { fill: transparent; stroke-width: 1.2; }
+    100% { fill: #B8BDC7; stroke-width: 0; stroke: transparent; }
+  }
+
+  /* ─── LOGO SVG ─── */
+  .logo-svg { height: 48px; width: auto; }
+  .logo-svg-sm { height: 36px; width: auto; }
+
+  /* ─── GLOBAL ─── */
+  body { overflow-x: hidden; }
+  section { position: relative; }
+
+  /* ─── HEADER ─── */
+  .main-header.home-6 { top: 0; padding: 0; position: fixed; }
+  .main-header.home-6 .header-lower { background: linear-gradient(to bottom, rgba(13,40,80,0.95) 0%, rgba(13,40,80,0.75) 60%, rgba(13,40,80,0) 100%); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-bottom: none; width: 100%; padding-bottom: 6px; }
+  .main-header.home-6 .header-lower .main-menu .navigation > li { margin: 0 22px; }
+  .main-header.home-6 .header-lower .main-menu .navigation > li > a { color: #ffffff !important; font-weight: 600; font-size: 17px; line-height: 28px; padding: 12px 0 !important; letter-spacing: 0.04em; text-transform: uppercase; border: none !important; border-radius: 0 !important; background: transparent !important; }
+  .main-header.home-6 .header-lower .main-menu .navigation > li > a:before { display: none !important; background-image: none !important; }
+  .main-header.home-6 .header-lower .main-menu .navigation > li > a:after { display: none !important; }
+  .main-header.home-6 .header-lower .main-menu .navigation > li > a:hover,
+  .main-header.home-6 .header-lower .main-menu .navigation > li.current > a { color: #5B9FD8 !important; border: none !important; background: transparent !important; }
+  .header-lower .outer-box { padding: 14px 48px 6px; align-items: center; display: flex; gap: 40px; min-height: 52px; }
+  .header-cta-btn { background: #1d4370; color: #fff !important; padding: 11px 24px; border-radius: 4px; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap; transition: background 0.2s; border: none; display: inline-flex; align-items: center; gap: 8px; }
+  .header-cta-btn:hover { background: #0F2D50; color: #fff !important; }
+  /* push hero down so it doesn't hide behind fixed header */
+  .valtrax-hero { margin-top: 0; }
+
+  /* ─── HERO ─── */
+  .valtrax-hero { position: relative; width: 100%; height: 100vh; min-height: 600px; overflow: hidden; background: #0D1821; display: flex; align-items: flex-end; }
+  .hero-video-wrap { position: absolute; inset: 0; z-index: 1; }
+  .hero-video-wrap video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.4s ease-in-out; }
+  .hero-video-wrap video.active { opacity: 1; }
+  .hero-overlay { position: absolute; inset: 0; z-index: 2; background: linear-gradient(to right, rgba(10,20,35,0.88) 45%, rgba(10,20,35,0.35) 100%); }
+  .hero-content { position: relative; z-index: 3; padding: 0 80px 80px; max-width: 780px; }
+  .hero-eyebrow { display: inline-flex; align-items: center; gap: 10px; color: #5B9FD8; font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 24px; }
+  .hero-eyebrow::before { content: ''; width: 32px; height: 2px; background: #5B9FD8; flex-shrink: 0; }
+  .hero-headline { font-family: 'Outfit', sans-serif; font-size: clamp(38px, 5vw, 72px); font-weight: 800; color: #fff; line-height: 1.05; margin-bottom: 20px; }
+  .hero-headline span { color: #5B9FD8; }
+  .hero-sub { font-size: 17px; color: rgba(255,255,255,0.72); line-height: 1.65; max-width: 520px; margin-bottom: 40px; }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; margin-bottom: 56px; }
+  .btn-primary-vx { background: var(--valtrax-blue); color: #fff; padding: 16px 36px; border-radius: 4px; font-weight: 700; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; transition: background 0.2s, transform 0.2s; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+  .btn-primary-vx:hover { background: #4FA3E8; color: #fff; transform: translateY(-2px); text-decoration: none; }
+  .btn-outline-vx { border: 2px solid rgba(255,255,255,0.35); color: #fff; padding: 14px 32px; border-radius: 4px; font-weight: 600; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; transition: border-color 0.2s, color 0.2s; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+  .btn-outline-vx:hover { border-color: #4FA3E8; color: #4FA3E8; text-decoration: none; }
+  .hero-stats { display: flex; gap: 32px; flex-wrap: wrap; }
+  .hero-stat-item { display: flex; flex-direction: column; gap: 4px; }
+  .hero-stat-num { font-family: 'Outfit', sans-serif; font-size: 36px; font-weight: 800; color: #fff; line-height: 1; }
+  .hero-stat-num span { color: #5B9FD8; }
+  .hero-stat-label { font-size: 12px; color: rgba(255,255,255,0.55); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; }
+  .hero-video-dots { position: absolute; bottom: 36px; right: 48px; z-index: 4; display: flex; gap: 8px; }
+  .hvd { width: 28px; height: 3px; background: rgba(255,255,255,0.3); border-radius: 2px; cursor: pointer; transition: background 0.3s, width 0.3s; }
+  .hvd.active { background: #5B9FD8; width: 52px; }
+
+  /* ─── NOSOTROS ─── */
+  .nosotros-section { background: #fff; padding: 120px 0; }
+  .nosotros-section .container-fluid { padding: 0 80px; }
+  .section-label { font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--valtrax-blue); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+  .section-label::before { content: ''; width: 32px; height: 2px; background: var(--valtrax-blue); flex-shrink: 0; }
+  .section-title { font-family: 'Outfit', sans-serif; font-size: clamp(32px, 3.5vw, 52px); font-weight: 800; color: var(--valtrax-dark); line-height: 1.1; margin-bottom: 24px; }
+  .section-body { font-size: 17px; color: var(--text-color); line-height: 1.7; }
+  .nosotros-quote { border-left: 3px solid var(--valtrax-blue); padding-left: 24px; margin: 32px 0; font-size: 18px; font-weight: 500; color: var(--valtrax-dark); font-style: italic; line-height: 1.55; }
+  .nosotros-img-grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 200px 200px; gap: 12px; }
+  .nosotros-img-placeholder { background: linear-gradient(135deg, #1B3A5C, #2B6CB0); border-radius: 6px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
+  .nosotros-img-placeholder.span-2 { grid-column: span 2; }
+  .nosotros-img-placeholder svg { opacity: 0.5; }
+  .nosotros-img-placeholder p { color: rgba(255,255,255,0.5); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; font-family: monospace; }
+  .stat-strip { background: var(--valtrax-dark); padding: 48px 80px; display: flex; justify-content: space-around; align-items: center; gap: 32px; flex-wrap: wrap; }
+  /* stat-strip cinematic */
+  .stat-strip { position: relative; overflow: hidden; }
+  .stat-strip::before { content:''; position:absolute; width:700px; height:280px; background: radial-gradient(ellipse, rgba(29,67,112,0.5) 0%, transparent 70%); top:50%; left:50%; transform:translate(-50%,-50%); pointer-events:none; }
+  .stat-item { text-align:center; flex:1; min-width:140px; padding:0 16px; }
+  .stat-num { font-family:'Outfit',sans-serif; font-weight:200; font-size:clamp(56px,7vw,100px); line-height:1; color:rgba(255,255,255,0.08); -webkit-text-stroke:1.5px rgba(255,255,255,0.6); letter-spacing:-0.02em; margin-bottom:14px; }
+  .stat-num sup { font-size:0.45em; vertical-align:top; margin-top:14px; display:inline-block; -webkit-text-stroke:1px rgba(255,255,255,0.5); }
+  .stat-label { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.35); font-weight:500; }
+  .stat-divider { width:1px; height:70px; background:rgba(255,255,255,0.06); flex-shrink:0; }
+
+  /* ─── SERVICIOS ─── */
+  .servicios-section { position: relative; padding: 120px 0 0; overflow: hidden; background: #060D16; }
+  .servicios-section .svc-header { padding: 0 80px 72px; }
+  /* Fondo de videos dinámico */
+  #svc-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #060D16; }
+  #svc-bg .svc-bg-item { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity 1s cubic-bezier(0.23,1,0.32,1), transform 1s cubic-bezier(0.23,1,0.32,1); transform: scale(1.04); }
+  #svc-bg .svc-bg-item::after { content: ''; position: absolute; inset: 0; background: rgba(5,12,22,0.62); }
+  #svc-bg .svc-bg-item video { width: 100%; height: 100%; object-fit: cover; display: block; }
+  #svc-bg .svc-bg-item.svc-active { opacity: 1; visibility: visible; transform: scale(1); }
+  /* Grid de columnas */
+  .svc-grid { display: flex; position: relative; z-index: 2; border-top: 1px solid rgba(255,255,255,0.08); }
+  .svc-col { flex: 1; border-right: 1px solid rgba(255,255,255,0.08); padding: 36px 32px 48px; cursor: pointer; position: relative; transition: background 0.4s; min-height: 420px; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; }
+  .svc-col:last-child { border-right: none; }
+  .svc-col::before { content: ''; position: absolute; top: 0; right: 0; width: 1px; height: 0; background: #fff; transition: height 0.45s ease; }
+  .svc-col:hover::before { height: 100%; }
+  /* Número decorativo */
+  .svc-num { font-family: 'Outfit', sans-serif; font-size: 130px; font-weight: 800; line-height: 1; color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,0.12); display: block; position: absolute; top: 24px; left: 28px; transition: -webkit-text-stroke-color 0.4s, transform 0.45s ease, opacity 0.45s ease; transform: translateY(-20px); opacity: 0; }
+  .svc-col:hover .svc-num { -webkit-text-stroke-color: rgba(255,255,255,0.45); transform: translateY(0); opacity: 1; }
+  /* Contenido */
+  .svc-content { transform: translateY(90px); transition: transform 0.45s cubic-bezier(0.23,1,0.32,1); }
+  .svc-col:hover .svc-content { transform: translateY(0); }
+  .svc-title { font-family: 'Outfit', sans-serif; font-size: 24px; font-weight: 700; color: #fff; margin-bottom: 0; }
+  .svc-desc { font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.6; margin-top: 12px; opacity: 0; max-height: 0; overflow: hidden; transition: opacity 0.35s ease 0.1s, max-height 0.4s ease; }
+  .svc-col:hover .svc-desc { opacity: 1; max-height: 90px; }
+  /* Etiqueta rotada */
+  .svc-tag { font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.09); backdrop-filter: blur(10px); padding: 8px 13px; display: inline-block; writing-mode: vertical-rl; transform: rotate(180deg); position: absolute; top: 28px; right: 0; transition: color 0.3s, background 0.3s; }
+  .svc-col:hover .svc-tag { color: rgba(255,255,255,0.9); background: rgba(91,159,216,0.25); }
+
+  /* ─── PROCESO ─── */
+  .proceso-section { background: #F8FAFB; padding: 120px 0; }
+  .proceso-section .container-fluid { padding: 0 80px; }
+  .proceso-canvas-wrap { width:100%; overflow:hidden; display:flex; justify-content:center; margin-top:16px; }
+  .proceso-canvas-wrap canvas { display:block; max-width:100%; height:auto; }
+  /* proceso badge removed */
+
+  /* ─── COBERTURA ─── */
+  .cobertura-section { background: var(--valtrax-dark); padding: 120px 0; }
+  .cobertura-section .container-fluid { padding: 0 80px; }
+  .cobertura-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-top: 64px; }
+  .cobertura-map { background: rgba(255,255,255,0.04); border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); padding: 48px; display: flex; flex-direction: column; gap: 16px; }
+  .cobertura-map-row { display: flex; align-items: center; gap: 20px; padding: 16px 20px; border-radius: 6px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); transition: background 0.2s; }
+  .cobertura-map-row:hover { background: rgba(27,96,176,0.12); border-color: rgba(79,163,232,0.2); }
+  .cobertura-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+  .cobertura-dot.principal { background: #5B9FD8; box-shadow: 0 0 0 4px rgba(91,159,216,0.2); }
+  .cobertura-dot.sucursal { background: #3A7BBF; }
+  .cobertura-dot.cobertura { background: #2A4F6A; }
+  .cobertura-city { font-weight: 700; color: #fff; font-size: 16px; }
+  .cobertura-role { font-size: 12px; color: rgba(255,255,255,0.45); letter-spacing: 0.08em; text-transform: uppercase; }
+  .cobertura-detail { font-size: 13px; color: rgba(255,255,255,0.55); margin-left: auto; }
+  .cobertura-info { }
+  .cobertura-info .section-label { color: #5B9FD8; }
+  .cobertura-info .section-label::before { background: #5B9FD8; }
+  .cobertura-info .section-title { color: #fff; }
+  .cobertura-info .section-body { color: rgba(255,255,255,0.62); }
+  .cobertura-feature { display: flex; align-items: flex-start; gap: 16px; margin-top: 28px; }
+  .cobertura-feature-icon { width: 44px; height: 44px; border-radius: 6px; background: rgba(91,159,216,0.15); border: 1px solid rgba(91,159,216,0.25); flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+  .cobertura-feature-text h4 { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+  .cobertura-feature-text p { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.55; }
+
+  /* ─── VALORES ─── */
+  .valores-section { background: var(--valtrax-light); padding: 120px 0; }
+  .valores-section .container-fluid { padding: 0 80px; }
+  .valores-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 64px; }
+  .valor-card { background: #fff; border-radius: 8px; padding: 36px 32px; border: 1px solid rgba(0,0,0,0.06); transition: box-shadow 0.3s, transform 0.3s; }
+  .valor-card:hover { box-shadow: 0 12px 40px rgba(29,67,112,0.1); transform: translateY(-4px); }
+  .valor-num { font-family: 'Outfit', sans-serif; font-size: 48px; font-weight: 900; color: rgba(27,96,176,0.08); line-height: 1; margin-bottom: 16px; }
+  .valor-title { font-family: 'Outfit', sans-serif; font-size: 22px; font-weight: 800; color: var(--valtrax-dark); margin-bottom: 10px; }
+  .valor-sub { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--valtrax-blue); margin-bottom: 14px; }
+  .valor-body { font-size: 14px; color: var(--text-color); line-height: 1.65; }
+
+  /* ─── CTA ─── */
+  .cta-valtrax { background: linear-gradient(135deg, #091E35 0%, #1d4370 60%, #274F85 100%); padding: 100px 80px; text-align: center; }
+  .cta-valtrax h2 { font-family: 'Outfit', sans-serif; font-size: clamp(32px, 4vw, 56px); font-weight: 800; color: #fff; margin-bottom: 16px; }
+  .cta-valtrax p { font-size: 18px; color: rgba(255,255,255,0.72); max-width: 540px; margin: 0 auto 40px; }
+  .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .cta-contact-strip { background: rgba(255,255,255,0.08); border-top: 1px solid rgba(255,255,255,0.1); padding: 32px 80px; display: flex; justify-content: center; gap: 64px; flex-wrap: wrap; }
+  .cta-contact-item { display: flex; align-items: center; gap: 14px; }
+  .cta-contact-item i { font-size: 20px; color: #5B9FD8; }
+  .cta-contact-item span { font-size: 14px; color: rgba(255,255,255,0.72); }
+  .cta-contact-item strong { display: block; font-size: 16px; color: #fff; font-weight: 600; }
+
+  /* ─── FOOTER ─── */
+  .footer-valtrax { background: #060E18; padding: 80px 80px 0; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 60px; padding-bottom: 60px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .footer-brand p { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.7; margin-top: 20px; }
+  .footer-social { display: flex; gap: 12px; margin-top: 24px; }
+  .footer-social a { width: 38px; height: 38px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.5); font-size: 14px; transition: border-color 0.2s, color 0.2s; }
+  .footer-social a:hover { border-color: #5B9FD8; color: #5B9FD8; }
+  .footer-col h4 { font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 700; color: #fff; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; }
+  .footer-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col ul li a { font-size: 14px; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+  .footer-col ul li a:hover { color: #5B9FD8; }
+  .footer-contact-item { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 14px; }
+  .footer-contact-item i { font-size: 14px; color: #5B9FD8; margin-top: 2px; flex-shrink: 0; }
+  .footer-contact-item span { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.5; }
+  .footer-horario { margin-top: 16px; background: rgba(255,255,255,0.03); border-radius: 6px; padding: 16px; border: 1px solid rgba(255,255,255,0.06); }
+  .footer-horario p { font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.8; }
+  .footer-horario strong { color: rgba(255,255,255,0.6); }
+  .footer-bottom { padding: 24px 0; display: flex; align-items: center; justify-content: space-between; }
+  .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.3); }
+
+  /* ─── SCROLL TO TOP ─── */
+  .scroll-top-btn { position: fixed; bottom: 32px; right: 32px; width: 48px; height: 48px; background: #1d4370; color: #fff; border-radius: 4px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 999; opacity: 0; pointer-events: none; transition: opacity 0.3s, transform 0.3s; font-size: 18px; text-decoration: none; }
+  .scroll-top-btn.visible { opacity: 1; pointer-events: all; }
+  .scroll-top-btn:hover { background: #0F2D50; color: #fff; transform: translateY(-3px); }
+
+  /* ─── WHATSAPP FLOAT ─── */
+  .wa-float { position: fixed; bottom: 88px; right: 32px; width: 52px; height: 52px; background: #25D366; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 999; font-size: 26px; text-decoration: none; box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: transform 0.2s; }
+  .wa-float:hover { transform: scale(1.1); color: #fff; }
+
+  /* ─── MOBILE NAV ─── */
+  .mobile-menu .nav-logo { padding: 20px; }
+  @media (max-width: 991px) {
+    .valtrax-hero { height: 90vh; }
+    .hero-content { padding: 0 32px 60px; }
+    .hero-stats { gap: 24px; }
+    .nosotros-section .container-fluid,
+    .servicios-section .container-fluid,
+    .proceso-section .container-fluid,
+    .cobertura-section .container-fluid,
+    .valores-section .container-fluid { padding: 0 32px; }
+    .servicios-grid { grid-template-columns: 1fr 1fr; }
+    .proceso-grid { grid-template-columns: 1fr 1fr; gap: 48px; }
+    .proceso-grid::before { display: none; }
+    .cobertura-grid { grid-template-columns: 1fr; }
+    .valores-grid { grid-template-columns: 1fr 1fr; }
+    .cta-valtrax { padding: 80px 32px; }
+    .cta-contact-strip { padding: 32px; gap: 32px; }
+    .footer-valtrax { padding: 60px 32px 0; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .stat-strip { padding: 48px 32px; }
+  }
+  @media (max-width: 600px) {
+    .servicios-grid { grid-template-columns: 1fr; }
+    .valores-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .proceso-grid { grid-template-columns: 1fr; }
+    .nosotros-img-grid { grid-template-columns: 1fr; }
+    .nosotros-img-placeholder.span-2 { grid-column: span 1; }
+  }
+
+  /* hide mobile toggler always (nav hardcoded visible) */
+  .main-header.home-6 .menu-right-content .mobile-nav-toggler { display: none !important; }
+  /* ─── FIXED HEADER (keep same gradient header on scroll) ─── */
+  .main-header.fixed-header .header-lower { background: linear-gradient(to bottom, rgba(13,40,80,0.98) 0%, rgba(13,40,80,0.85) 60%, rgba(13,40,80,0.4) 100%); }
+  .main-header .sticky-header { display: none !important; }
+
+  /* ─── HIDE 4-DOT / DEMO BUTTON ─── */
+  .demo-switch, .pagenav, #pagenav, .scroll-nav-wrap, .page-nav-wrap { display:none !important; }
+
+  /* ─── AOS ANIMATIONS ADJUSTMENT ─── */
+  [data-aos] { will-change: transform, opacity; }
+</style>
+</head>
+
+<body>
+<div class="boxed_wrapper light_bg">
+
+  <!-- preloader -->
+  <div class="loader-wrap">
+    <div class="preloader">
+      <div id="handle-preloader" class="handle-preloader">
+        <div class="animation-preloader">
+          <div class="spinner"></div>
+          <svg class="preloader-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1234.07 265.24">
+            <!-- INDUSTRIAL SPA wordmark (small, gray) -->
+            <path class="vx-shape gray tiny d3" pathLength="100" d="M579.79,209.1l-1.08,40.95h-5.08l1.08-40.95h5.08Z"/>
+            <path class="vx-shape gray tiny d3" pathLength="100" d="M592.6,250.05l1.08-40.95h5.54l12.06,20.72c2.79,4.8,4.95,9.11,6.71,13.3l.12-.06c-.32-5.47-.31-10.45-.14-16.83l.45-17.13h4.79l-1.08,40.95h-5.14l-11.94-20.78c-2.62-4.56-5.13-9.24-6.99-13.67l-.18.06c.16,5.16.14,10.08-.04,16.89l-.46,17.5h-4.79Z"/>
+            <path class="vx-shape gray tiny d3" pathLength="100" d="M636.39,209.65c3.11-.49,6.79-.85,10.82-.85,7.3,0,12.44,1.76,15.8,5.1,3.41,3.34,5.33,8.08,5.16,14.7-.18,6.68-2.3,12.15-6.08,15.92-3.78,3.83-9.9,5.89-17.55,5.89-3.62,0-6.65-.18-9.21-.48l1.06-40.28ZM640.52,245.86c1.28.24,3.14.3,5.13.3,10.86,0,16.92-6.32,17.21-17.38.31-9.66-4.78-15.8-15.52-15.8-2.63,0-4.62.24-5.97.55l-.85,32.32Z"/>
+            <path class="vx-shape gray tiny d3" pathLength="100" d="M683.62,209.1l-.64,24.24c-.24,9.17,3.57,13.06,8.82,13.06,5.84,0,9.68-4.01,9.92-13.06l.64-24.24h5.14l-.63,23.88c-.33,12.58-6.83,17.74-15.35,17.74-8.05,0-14-4.8-13.67-17.5l.63-24.12h5.14Z"/>
+            <path class="vx-shape gray tiny d3" pathLength="100" d="M716.68,243.61c2.24,1.46,5.53,2.67,9.04,2.67,5.2,0,8.3-2.86,8.41-6.99.1-3.83-1.94-6.02-7.2-8.14-6.36-2.37-10.24-5.83-10.08-11.6.17-6.38,5.37-11.12,13.02-11.12,4.03,0,6.92.97,8.64,2.01l-1.51,4.31c-1.26-.73-3.86-1.94-7.42-1.94-5.37,0-7.5,3.34-7.57,6.14-.1,3.83,2.24,5.71,7.61,7.9,6.58,2.67,9.88,6.02,9.72,12.03-.17,6.32-4.8,11.79-14.08,11.79-3.79,0-7.91-1.15-9.97-2.61l1.4-4.43Z"/>
+            <path class="vx-shape gray tiny d3" pathLength="100" d="M762.08,213.6h-11.96l.12-4.5h29.12l-.12,4.5h-12.02l-.96,36.45h-5.14l.96-36.45Z"/>
+            <path class="vx-shape gray tiny d3" pathLength="100" d="M787.41,209.65c2.58-.55,6.27-.85,9.77-.85,5.43,0,8.9,1.03,11.29,3.34,1.94,1.82,2.97,4.62,2.89,7.78-.14,5.41-3.51,8.99-7.69,10.45v.18c3,1.09,4.73,4.01,5.56,8.26,1.13,5.71,1.96,9.66,2.74,11.24h-5.25c-.61-1.15-1.39-4.68-2.37-9.78-1.02-5.65-3.06-7.78-7.67-7.96h-4.79l-.47,17.74h-5.08l1.06-40.4ZM792,228.3h5.19c5.43,0,8.95-3.1,9.08-7.78.14-5.29-3.48-7.59-8.84-7.65-2.45,0-4.21.24-5.03.48l-.39,14.95Z"/>
+            <path class="vx-shape gray tiny d3" pathLength="100" d="M832.65,209.1l-1.08,40.95h-5.08l1.08-40.95h5.08Z"/>
+            <path class="vx-shape gray tiny d3" pathLength="100" d="M852.16,237.17l-4.42,12.88h-5.25l14.44-40.95h6.13l12.35,40.95h-5.43l-3.86-12.88h-13.95ZM865.16,233.04l-3.54-11.79c-.8-2.67-1.33-5.1-1.85-7.47h-.12c-.65,2.43-1.36,4.92-2.18,7.41l-4.16,11.85h11.85Z"/>
+            <path class="vx-shape gray tiny d3" pathLength="100" d="M882.17,209.1h5.08l-.96,36.51h16.81l-.12,4.43h-21.89l1.08-40.95Z"/>
+            <path class="vx-shape gray tiny d3" pathLength="100" d="M932.48,243.61c2.24,1.46,5.53,2.67,9.03,2.67,5.2,0,8.3-2.86,8.41-6.99.1-3.83-1.94-6.02-7.2-8.14-6.36-2.37-10.24-5.83-10.08-11.6.17-6.38,5.37-11.12,13.02-11.12,4.03,0,6.92.97,8.64,2.01l-1.51,4.31c-1.26-.73-3.86-1.94-7.42-1.94-5.37,0-7.5,3.34-7.57,6.14-.1,3.83,2.24,5.71,7.61,7.9,6.58,2.67,9.88,6.02,9.72,12.03-.17,6.32-4.8,11.79-14.08,11.79-3.79,0-7.91-1.15-9.97-2.61l1.4-4.43Z"/>
+            <path class="vx-shape gray tiny d3" pathLength="100" d="M971.68,209.59c2.46-.43,5.68-.79,9.77-.79,5.02,0,8.66,1.22,10.94,3.4,2.11,1.94,3.31,4.92,3.22,8.57-.1,3.71-1.23,6.62-3.27,8.75-2.76,2.98-7.18,4.5-12.14,4.5-1.52,0-2.92-.06-4.08-.36l-.43,16.4h-5.08l1.06-40.46ZM976.24,229.33c1.1.3,2.5.43,4.19.43,6.13,0,9.94-3.1,10.09-8.75.14-5.41-3.47-8.02-9.07-8.02-2.22,0-3.92.18-4.8.42l-.42,15.92Z"/>
+            <path class="vx-shape gray tiny d3" pathLength="100" d="M1011.98,237.17l-4.42,12.88h-5.25l14.44-40.95h6.13l12.35,40.95h-5.43l-3.86-12.88h-13.95ZM1024.99,233.04l-3.54-11.79c-.8-2.67-1.33-5.1-1.85-7.47h-.12c-.65,2.43-1.36,4.92-2.18,7.41l-4.16,11.85h11.85Z"/>
+            <!-- Decorative dashes around INDUSTRIAL SPA -->
+            <polygon class="vx-shape gray tiny d3" pathLength="100" points="560.32 223.73 479.65 226.93 560.32 230.12 560.32 223.73" fill-rule="evenodd"/>
+            <polygon class="vx-shape gray tiny d3" pathLength="100" points="1046.17 223.73 1126.84 226.93 1046.17 230.12 1046.17 223.73" fill-rule="evenodd"/>
+            <!-- VX icon (left) -->
+            <polygon class="vx-shape d1" pathLength="100" points="126.59 206.75 209.36 67.42 230.56 66.66 270.79 0 185.59 .76 124 101.28 69.98 1.5 0 1.5 126.59 206.75"/>
+            <polygon class="vx-shape gray d2" pathLength="100" points="272.75 139.32 358.52 .74 293.13 0 240.41 86.71 272.75 139.32"/>
+            <polygon class="vx-shape gray d3" pathLength="100" points="198.12 258.61 234.04 200.54 270.44 258.61 330.53 258.61 219.65 82.06 189.57 131.9 200.68 149.92 134.62 258.61 198.12 258.61"/>
+            <!-- VALTRAX wordmark -->
+            <polygon class="vx-shape d2" pathLength="100" points="415.9 168.57 461.11 168.57 519.42 47.06 488.19 47.06 442.89 141.67 416.61 47.06 379.97 47.06 415.9 168.57"/>
+            <path class="vx-shape d2" pathLength="100" d="M485.07,168.57h35.69l11.64-24.64h51.45l8.33,24.64h36.42l-37.9-121.51h-44.54l-61.1,121.51ZM541.88,118.71l22.27-46.54,14.4,46.54h-36.67Z"/>
+            <polygon class="vx-shape d2" pathLength="100" points="635.17 168.57 732.77 168.57 736.04 142.08 672.82 142.08 684.55 47.06 650.17 47.06 635.17 168.57"/>
+            <polygon class="vx-shape d3" pathLength="100" points="746.05 168.57 780.44 168.57 791.01 72.55 828.27 72.55 831.17 49.1 721.36 49.1 718.47 72.55 757.9 72.55 746.05 168.57"/>
+            <path class="vx-shape d3" pathLength="100" d="M917.83,89.63c.56-5.67-1.15-9.79-5.1-12.34-3.95-2.55-9.77-3.84-17.41-3.84h-20.53l-3.27,32.07h20.53c7.66,0,13.73-.15,18.21-3.04,4.49-2.89,7.01-7.17,7.56-12.85M919.36,124.79l28.19,43.56h-37.16l-24.35-41.09-17.78-.44-4.24,41.54h-34.06l14.52-118.14,57.89-.32c7.96-.04,15.22.76,21.79,2.28,6.56,1.52,12.8,2.92,16.6,6.75,21.19,21.38,14.27,59.48-21.39,65.87Z"/>
+            <path class="vx-shape d3" pathLength="100" d="M950.09,168.57h35.69l11.64-24.64h51.45l8.33,24.64h36.42l-37.9-121.51h-44.54l-61.1,121.51ZM1006.9,118.71l22.27-46.54,14.4,46.54h-36.67Z"/>
+            <polygon class="vx-shape d3" pathLength="100" points="1094.13 168.57 1130.88 168.57 1159.45 133.38 1185.08 168.57 1225.03 168.57 1183.3 108.6 1234.07 47.06 1195.74 47.06 1165.72 88.08 1139.02 47.06 1100.14 47.06 1142.55 110.94 1094.13 168.57"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- preloader end -->
+
+  <!-- main header -->
+  <header class="main-header home-6">
+    <div class="header-lower">
+      <div class="outer-box">
+        <div class="logo-box">
+          <a href="index.html">
+            <img src="assets/images/valtrax-logo.svg" alt="VALTRAX" style="height:46px;width:auto;filter:brightness(0) invert(1);">
+            </svg>
+          </a>
+        </div>
+        <div class="menu-area">
+          <nav class="main-menu navbar-expand-md navbar-light clearfix">
+            <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+              <ul class="navigation clearfix">
+                <li class="current"><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#proceso">Proceso</a></li>
+                <li><a href="#cobertura">Cobertura</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <div class="menu-right-content" style="display:flex;align-items:center;gap:16px;">
+          <a href="https://wa.me/56900000000" target="_blank" class="header-cta-btn">
+            <i class="fab fa-whatsapp"></i> Cotizar
+          </a>
+          <div class="mobile-nav-toggler"><i class="icon-22"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- sticky header -->
+    <div class="sticky-header">
+      <div class="outer-container">
+        <div class="outer-box">
+          <div class="logo-box">
+            <a href="index.html">
+              <img src="assets/images/valtrax-logo.svg" alt="VALTRAX" style="height:40px;width:auto;">
+            </a>
+          </div>
+          <div class="menu-area">
+            <nav class="main-menu clearfix"><!--JS fills this--></nav>
+          </div>
+          <div class="menu-right-content">
+            <a href="https://wa.me/56900000000" target="_blank" class="header-cta-btn">
+              <i class="fab fa-whatsapp"></i> Cotizar
+            </a>
+            <div class="mobile-nav-toggler"><i class="icon-22"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- main header end -->
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <div class="menu-backdrop"></div>
+    <div class="close-btn"><i class="fas fa-times"></i></div>
+    <nav class="menu-box">
+      <div class="nav-logo">
+        <svg viewBox="0 0 220 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:40px">
+          <text x="0" y="38" font-family="Outfit, sans-serif" font-weight="800" font-size="38" fill="#FFFFFF" letter-spacing="-1">VALTRAX</text>
+          <rect x="0" y="43" width="220" height="3" fill="#1B60B0"/>
+        </svg>
+      </div>
+      <div class="menu-outer"></div>
+      <div class="contact-info">
+        <h4>Contacto</h4>
+        <ul>
+          <li>Antofagasta · Calama, Chile</li>
+          <li><a href="tel:+56900000000">+56 9 XXXX XXXX</a></li>
+          <li><a href="mailto:contacto@valtrax.cl">contacto@valtrax.cl</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <!-- End Mobile Menu -->
+
+
+  <!-- ═══════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════ -->
+  <section class="valtrax-hero" id="inicio">
+    <div class="hero-video-wrap">
+      <video class="active" autoplay muted playsinline>
+        <source src="assets/videos inicio/hero1.mp4" type="video/mp4">
+      </video>
+      <video muted playsinline>
+        <source src="assets/videos inicio/hero2.mp4" type="video/mp4">
+      </video>
+      <video muted playsinline>
+        <source src="assets/videos inicio/hero3.mp4" type="video/mp4">
+      </video>
+      <video muted playsinline>
+        <source src="assets/videos inicio/7084d926-d309-4235-b3b1-abec788fb354-2026-05-01.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Minería del Norte de Chile</div>
+      <h1 class="hero-headline">Cuando la urgencia<br><span>no espera.</span></h1>
+      <p class="hero-sub">Tu partner estratégico en la provisión de insumos industriales, ferretería y equipamiento. Respondemos donde y cuando la operación minera lo exige.</p>
+      <div class="hero-actions">
+        <a href="#contacto" class="btn-primary-vx">
+          <i class="fas fa-bolt"></i> Solicitar Cotización
+        </a>
+        <a href="#servicios" class="btn-outline-vx">
+          Ver Servicios <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat-item">
+          <div class="hero-stat-num">24<span>h</span></div>
+          <div class="hero-stat-label">Entrega Express</div>
+        </div>
+        <div class="hero-stat-item">
+          <div class="hero-stat-num">2<span>h</span></div>
+          <div class="hero-stat-label">Respuesta Cotización</div>
+        </div>
+        <div class="hero-stat-item">
+          <div class="hero-stat-num">100<span>%</span></div>
+          <div class="hero-stat-label">Compromiso Entrega</div>
+        </div>
+        <div class="hero-stat-item">
+          <div class="hero-stat-num">5<span>+</span></div>
+          <div class="hero-stat-label">Regiones Cubiertas</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-video-dots">
+      <div class="hvd active" data-index="0"></div>
+      <div class="hvd" data-index="1"></div>
+      <div class="hvd" data-index="2"></div>
+      <div class="hvd" data-index="3"></div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       STAT STRIP
+  ═══════════════════════════════════════ -->
+  <div class="stat-strip" id="statsSection">
+    <div class="stat-item" data-aos="fade-up" data-aos-delay="0">
+      <div class="stat-num">24<sup>h</sup></div>
+      <div class="stat-label">Entrega a Faena</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+      <div class="stat-num">2<sup>h</sup></div>
+      <div class="stat-label">Tiempo de Cotización</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+      <div class="stat-num">6</div>
+      <div class="stat-label">Categorías de Insumos</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+      <div class="stat-num">5<sup>+</sup></div>
+      <div class="stat-label">Regiones de Cobertura</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+      <div class="stat-num">100<sup>%</sup></div>
+      <div class="stat-label">Compromiso de Entrega</div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════
+       NOSOTROS
+  ═══════════════════════════════════════ -->
+  <section class="nosotros-section" id="nosotros">
+    <div class="container-fluid">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6" data-aos="fade-right" data-aos-duration="800">
+          <div class="section-label">Quiénes Somos</div>
+          <h2 class="section-title">Nacimos desde la experiencia directa en el rubro minero.</h2>
+          <p class="section-body">VALTRAX SpA es una empresa chilena especializada en la provisión urgente de insumos, materiales y equipamiento para la industria minera. Contamos con personal altamente capacitado en compras industriales, logística de respuesta rápida y conocimiento del mercado de proveedores.</p>
+          <blockquote class="nosotros-quote">
+            "Transportamos valor. No solo productos — transportamos tranquilidad, continuidad operacional y confianza para nuestros mandantes."
+          </blockquote>
+          <p class="section-body">Entendemos que en minería, cada hora de detención tiene un costo real. Para eso existimos: para ser el partner que resuelve cuando el tiempo apremia.</p>
+          <div style="margin-top:40px;display:flex;gap:16px;flex-wrap:wrap;">
+            <a href="#contacto" class="btn-primary-vx" style="font-size:13px;padding:14px 28px;">
+              <i class="fas fa-envelope"></i> Contáctanos
+            </a>
+            <a href="#servicios" class="btn-outline-vx" style="font-size:13px;padding:12px 28px;border-color:rgba(27,96,176,0.35);color:var(--valtrax-blue);">
+              Nuestros Servicios <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left" data-aos-duration="800" data-aos-delay="100">
+          <div class="nosotros-img-grid">
+            <div class="nosotros-img-placeholder span-2" style="height:240px;">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M8 36L24 12L40 36H8Z" stroke="white" stroke-width="2" fill="none"/><circle cx="24" cy="8" r="4" stroke="white" stroke-width="2" fill="none"/></svg>
+              <p>camión minero / faena</p>
+            </div>
+            <div class="nosotros-img-placeholder" style="height:200px;background:linear-gradient(135deg,#0A3D7A,#1B60B0);">
+              <svg width="36" height="36" viewBox="0 0 48 48" fill="none"><rect x="8" y="20" width="32" height="20" stroke="white" stroke-width="2" fill="none"/><path d="M16 20V14a8 8 0 0116 0v6" stroke="white" stroke-width="2" fill="none"/></svg>
+              <p>bodega / logística</p>
+            </div>
+            <div class="nosotros-img-placeholder" style="height:200px;background:linear-gradient(135deg,#162940,#1B3A5C);">
+              <svg width="36" height="36" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="16" stroke="white" stroke-width="2" fill="none"/><path d="M24 12v12l8 4" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+              <p>entrega express</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       SERVICIOS
+  ═══════════════════════════════════════ -->
+  <section class="servicios-section" id="servicios">
+    <!-- Fondos de video dinámicos -->
+    <div id="svc-bg">
+      <div class="svc-bg-item svc-active" data-svc="1">
+        <video autoplay muted loop playsinline><source src="assets/videos/ferreteria.mov" type="video/mp4"></video>
+      </div>
+      <div class="svc-bg-item" data-svc="2">
+        <video muted loop playsinline><source src="assets/videos/electrodomesticos.mp4" type="video/mp4"></video>
+      </div>
+      <div class="svc-bg-item" data-svc="3">
+        <video muted loop playsinline><source src="assets/videos/muebleria.mp4" type="video/mp4"></video>
+      </div>
+      <div class="svc-bg-item" data-svc="4">
+        <video muted loop playsinline><source src="assets/videos/equipamiento-industrial.mp4" type="video/mp4"></video>
+      </div>
+      <div class="svc-bg-item" data-svc="5">
+        <video muted loop playsinline><source src="assets/videos/tecnologia.mov" type="video/mp4"></video>
+      </div>
+      <div class="svc-bg-item" data-svc="6">
+        <video muted loop playsinline><source src="assets/videos/insumos-de-faena.mov" type="video/mp4"></video>
+      </div>
+    </div>
+
+    <!-- Encabezado -->
+    <div class="svc-header">
+      <div class="row align-items-end" style="max-width:1400px;margin:0 auto;">
+        <div class="col-lg-7" data-aos="fade-right">
+          <div class="section-label" style="color:rgba(255,255,255,0.5);">Categorías de Insumos</div>
+          <h2 class="section-title" style="color:#fff;">Todo lo que tu operación necesita, en un solo lugar.</h2>
+        </div>
+        <div class="col-lg-5" data-aos="fade-left">
+          <p class="section-body" style="color:rgba(255,255,255,0.58);">Si existe en el mercado, lo conseguimos. Despachamos directo a tu faena, campamento u oficina.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grid de columnas -->
+    <div class="svc-grid">
+
+      <!-- 01 Ferretería -->
+      <div class="svc-col" data-svc="1">
+        <span class="svc-tag">Ferretería</span>
+        <span class="svc-num">01</span>
+        <div class="svc-content">
+          <h4 class="svc-title">Ferretería</h4>
+          <p class="svc-desc">Herramientas, fijaciones, tuberías, pinturas, EPP y seguridad industrial.</p>
+        </div>
+      </div>
+
+      <!-- 02 Electrodomésticos -->
+      <div class="svc-col" data-svc="2">
+        <span class="svc-tag">Electro</span>
+        <span class="svc-num">02</span>
+        <div class="svc-content">
+          <h4 class="svc-title">Electrodomésticos</h4>
+          <p class="svc-desc">Televisores, refrigeradores, microondas, lavadoras y climatizadores.</p>
+        </div>
+      </div>
+
+      <!-- 03 Mueblería -->
+      <div class="svc-col" data-svc="3">
+        <span class="svc-tag">Mueblería</span>
+        <span class="svc-num">03</span>
+        <div class="svc-content">
+          <h4 class="svc-title">Mueblería</h4>
+          <p class="svc-desc">Escritorios, sillas, mesas, lockers, camarotes y estanterías industriales.</p>
+        </div>
+      </div>
+
+      <!-- 04 Equipamiento Industrial -->
+      <div class="svc-col" data-svc="4">
+        <span class="svc-tag">Industrial</span>
+        <span class="svc-num">04</span>
+        <div class="svc-content">
+          <h4 class="svc-title">Equipamiento Industrial</h4>
+          <p class="svc-desc">Generadores, compresores, equipos de limpieza y herramientas especializadas.</p>
+        </div>
+      </div>
+
+      <!-- 05 Tecnología -->
+      <div class="svc-col" data-svc="5">
+        <span class="svc-tag">Tecnología</span>
+        <span class="svc-num">05</span>
+        <div class="svc-content">
+          <h4 class="svc-title">Tecnología</h4>
+          <p class="svc-desc">Computadores, tablets, impresoras, redes, cámaras y telefonía.</p>
+        </div>
+      </div>
+
+      <!-- 06 Insumos de Faena -->
+      <div class="svc-col" data-svc="6">
+        <span class="svc-tag">Faena</span>
+        <span class="svc-num">06</span>
+        <div class="svc-content">
+          <h4 class="svc-title">Insumos de Faena</h4>
+          <p class="svc-desc">Higiene, vajilla, utensilios, señalética, oficina e insumos de campamento.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       PROCESO
+  ═══════════════════════════════════════ -->
+  <section class="proceso-section" id="proceso">
+    <div class="container-fluid">
+      <div class="text-center" style="margin-bottom:48px;">
+        <div class="section-label" style="justify-content:center;">Proceso de Compra</div>
+        <h2 class="section-title">Cuatro pasos. Sin complicaciones.</h2>
+      </div>
+      <div class="proceso-canvas-wrap">
+        <canvas id="procesoCanvas" width="1000" height="360"></canvas>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       COBERTURA
+  ═══════════════════════════════════════ -->
+  <section class="cobertura-section" id="cobertura">
+    <div class="container-fluid">
+      <div class="cobertura-grid">
+        <div class="cobertura-info" data-aos="fade-right" data-aos-duration="800">
+          <div class="section-label">Cobertura Geográfica</div>
+          <h2 class="section-title">Donde la minería opera, VALTRAX llega.</h2>
+          <p class="section-body">Flota propia y red de transporte asociada para toda la Región de Antofagasta. Despacho directo a faenas, campamentos, oficinas y bodegas. Expansión activa hacia el Norte Grande y Región Metropolitana.</p>
+
+          <div class="cobertura-feature" style="margin-top:36px;">
+            <div class="cobertura-feature-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h11a2 2 0 012 2v3" stroke="#4FA3E8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="9" y="11" width="14" height="10" rx="2" stroke="#4FA3E8" stroke-width="2"/><path d="M13 16l2 2 4-4" stroke="#4FA3E8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="cobertura-feature-text">
+              <h4>Flota Propia</h4>
+              <p>Camiones y camionetas propias para despacho express en la Región de Antofagasta.</p>
+            </div>
+          </div>
+
+          <div class="cobertura-feature">
+            <div class="cobertura-feature-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7M9 20l6-3M9 20V7m6 13l5.447-2.724A1 1 0 0021 16.382V5.618a1 1 0 00-1.447-.894L15 7m0 13V7M9 7l6-3" stroke="#4FA3E8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="cobertura-feature-text">
+              <h4>Expansión Nacional</h4>
+              <p>Creciendo hacia Arica, Iquique, Atacama y Región Metropolitana como hub logístico.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cobertura-map" data-aos="fade-left" data-aos-duration="800" data-aos-delay="100">
+          <div style="margin-bottom:8px;">
+            <div style="display:flex;gap:24px;flex-wrap:wrap;margin-bottom:20px;">
+              <div style="display:flex;align-items:center;gap:8px;"><div class="cobertura-dot principal"></div><span style="font-size:12px;color:rgba(255,255,255,0.5);">Sede Principal</span></div>
+              <div style="display:flex;align-items:center;gap:8px;"><div class="cobertura-dot sucursal"></div><span style="font-size:12px;color:rgba(255,255,255,0.5);">Sucursal</span></div>
+              <div style="display:flex;align-items:center;gap:8px;"><div class="cobertura-dot cobertura"></div><span style="font-size:12px;color:rgba(255,255,255,0.5);">Cobertura</span></div>
+            </div>
+          </div>
+
+          <div class="cobertura-map-row">
+            <div class="cobertura-dot principal"></div>
+            <div>
+              <div class="cobertura-city">Antofagasta</div>
+              <div class="cobertura-role">Sede Principal</div>
+            </div>
+            <div class="cobertura-detail">Despacho diario</div>
+          </div>
+          <div class="cobertura-map-row">
+            <div class="cobertura-dot sucursal"></div>
+            <div>
+              <div class="cobertura-city">Calama</div>
+              <div class="cobertura-role">Sucursal</div>
+            </div>
+            <div class="cobertura-detail">Zona minera activa</div>
+          </div>
+          <div class="cobertura-map-row">
+            <div class="cobertura-dot cobertura"></div>
+            <div>
+              <div class="cobertura-city">Sierra Gorda</div>
+              <div class="cobertura-role">Cobertura</div>
+            </div>
+            <div class="cobertura-detail">Despacho a faena</div>
+          </div>
+          <div class="cobertura-map-row">
+            <div class="cobertura-dot cobertura"></div>
+            <div>
+              <div class="cobertura-city">Tocopilla</div>
+              <div class="cobertura-role">Cobertura</div>
+            </div>
+            <div class="cobertura-detail">Despacho a faena</div>
+          </div>
+          <div class="cobertura-map-row">
+            <div class="cobertura-dot cobertura"></div>
+            <div>
+              <div class="cobertura-city">María Elena</div>
+              <div class="cobertura-role">Cobertura</div>
+            </div>
+            <div class="cobertura-detail">Despacho a faena</div>
+          </div>
+          <div class="cobertura-map-row" style="border-color:rgba(79,163,232,0.1);background:rgba(79,163,232,0.05);">
+            <div style="width:12px;height:12px;border-radius:50%;background:rgba(79,163,232,0.4);border:2px dashed #4FA3E8;flex-shrink:0;"></div>
+            <div>
+              <div class="cobertura-city" style="color:rgba(255,255,255,0.6);">Norte Grande + RM</div>
+              <div class="cobertura-role">Expansión en curso</div>
+            </div>
+            <div class="cobertura-detail" style="color:#4FA3E8;font-size:11px;font-weight:700;">Próximamente</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       VALORES
+  ═══════════════════════════════════════ -->
+  <section class="valores-section" id="valores">
+    <div class="container-fluid">
+      <div class="text-center">
+        <div class="section-label" style="justify-content:center;">El ADN de VALTRAX</div>
+        <h2 class="section-title">VALTRAX viene de <em>valores</em><br>y de <em>transportar</em>.</h2>
+        <p class="section-body" style="max-width:560px;margin:0 auto 0;">No solo movemos productos — transportamos los valores que hacen posible la confianza.</p>
+      </div>
+      <div class="valores-grid">
+        <div class="valor-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="valor-num">01</div>
+          <div class="valor-sub">Inmediatez</div>
+          <div class="valor-title">La urgencia es<br>nuestra especialidad</div>
+          <p class="valor-body">Respondemos rápido porque sabemos lo que cuesta cada hora de detención en faena. La velocidad no es un diferencial — es nuestra obligación con el cliente.</p>
+        </div>
+        <div class="valor-card" data-aos="fade-up" data-aos-delay="80">
+          <div class="valor-num">02</div>
+          <div class="valor-sub">Compromiso</div>
+          <div class="valor-title">Prometemos<br>y cumplimos</div>
+          <p class="valor-body">Cuando decimos que lo conseguimos, lo conseguimos. Nuestros mandantes deben poder dormir tranquilos sabiendo que VALTRAX tiene el control.</p>
+        </div>
+        <div class="valor-card" data-aos="fade-up" data-aos-delay="160">
+          <div class="valor-num">03</div>
+          <div class="valor-sub">Precisión</div>
+          <div class="valor-title">El producto correcto,<br>en el lugar correcto</div>
+          <p class="valor-body">No hay margen para errores en operaciones mineras. Verificamos, validamos y confirmamos cada pedido antes de despachar.</p>
+        </div>
+        <div class="valor-card" data-aos="fade-up" data-aos-delay="240">
+          <div class="valor-num">04</div>
+          <div class="valor-sub">Confianza</div>
+          <div class="valor-title">La base de toda<br>relación duradera</div>
+          <p class="valor-body">Operamos con transparencia total. Nuestros clientes siempre saben el estado de su pedido, el precio y el momento exacto en que llegará.</p>
+        </div>
+        <div class="valor-card" data-aos="fade-up" data-aos-delay="320">
+          <div class="valor-num">05</div>
+          <div class="valor-sub">Excelencia</div>
+          <div class="valor-title">El estándar mínimo<br>que aceptamos</div>
+          <p class="valor-body">Cada entrega, cotización e interacción refleja nuestro compromiso con la calidad. No despachamos lo que no querríamos recibir nosotros mismos.</p>
+        </div>
+        <div class="valor-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="valor-num">06</div>
+          <div class="valor-sub">Adaptabilidad</div>
+          <div class="valor-title">Soluciones para<br>cada realidad</div>
+          <p class="valor-body">Desde un perno en faena remota hasta equipamiento de oficina en Santiago. Nos adaptamos sin excusas ni límites de catálogo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       CTA / CONTACTO
+  ═══════════════════════════════════════ -->
+  <section id="contacto">
+    <div class="cta-valtrax">
+      <div data-aos="zoom-in">
+        <p style="font-size:13px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:12px;">¿Tienes una urgencia?</p>
+        <h2>Nosotros la resolvemos.</h2>
+        <p>Envíanos tu requerimiento ahora. Cotizamos en menos de 2 horas hábiles y entregamos en 24 horas.</p>
+        <div class="cta-actions">
+          <a href="https://wa.me/56900000000" target="_blank" class="btn-primary-vx" style="background:#25D366;">
+            <i class="fab fa-whatsapp"></i> WhatsApp Directo
+          </a>
+          <a href="mailto:contacto@valtrax.cl" class="btn-outline-vx">
+            <i class="fas fa-envelope"></i> contacto@valtrax.cl
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-contact-strip" style="background:#0A1929;">
+      <div class="cta-contact-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <div>
+          <strong>Sede Principal</strong>
+          <span>Antofagasta · Calama, Chile</span>
+        </div>
+      </div>
+      <div class="cta-contact-item">
+        <i class="fas fa-envelope"></i>
+        <div>
+          <strong>contacto@valtrax.cl</strong>
+          <span>Respuesta en menos de 2 horas</span>
+        </div>
+      </div>
+      <div class="cta-contact-item">
+        <i class="fab fa-whatsapp"></i>
+        <div>
+          <strong>+56 9 XXXX XXXX</strong>
+          <span>WhatsApp para urgencias</span>
+        </div>
+      </div>
+      <div class="cta-contact-item">
+        <i class="fas fa-clock"></i>
+        <div>
+          <strong>Lun–Vie 08:00–18:00</strong>
+          <span>Sáb 09:00–13:00</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer class="footer-valtrax">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/images/valtrax-logo.svg" alt="VALTRAX" style="height:44px;width:auto;filter:brightness(0) invert(1);margin-bottom:4px;">
+        <svg viewBox="0 0 220 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:none;height:44px">
+          <text x="0" y="38" font-family="Outfit, sans-serif" font-weight="800" font-size="38" fill="#FFFFFF" letter-spacing="-1">VALTRAX</text>
+          <rect x="0" y="43" width="220" height="3" fill="#1B60B0"/>
+        </svg>
+        <p>Partner estratégico en la provisión urgente de insumos industriales, ferretería y equipamiento para la minería del Norte de Chile.</p>
+        <p style="margin-top:8px;font-size:12px;">"Lo que necesitas, donde lo necesitas."</p>
+        <div class="footer-social">
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/56900000000" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="#servicios">Ferretería</a></li>
+          <li><a href="#servicios">Electrodomésticos</a></li>
+          <li><a href="#servicios">Mueblería</a></li>
+          <li><a href="#servicios">Equipamiento Industrial</a></li>
+          <li><a href="#servicios">Tecnología</a></li>
+          <li><a href="#servicios">Insumos de Faena</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#nosotros">Quiénes Somos</a></li>
+          <li><a href="#valores">Valores</a></li>
+          <li><a href="#proceso">Proceso de Compra</a></li>
+          <li><a href="#cobertura">Cobertura</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <div class="footer-contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Antofagasta (Sede) · Calama (Sucursal)</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-envelope"></i>
+          <span>contacto@valtrax.cl</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fab fa-whatsapp"></i>
+          <span>+56 9 XXXX XXXX</span>
+        </div>
+        <div class="footer-horario">
+          <p><strong>Lunes a Viernes:</strong> 08:00 – 18:00 hrs.<br><strong>Sábado:</strong> 09:00 – 13:00 hrs.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 VALTRAX SpA — Norte de Chile. RUT: XX.XXX.XXX-X</p>
+      <p style="color:rgba(255,255,255,0.2);font-size:12px;">Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Scroll top -->
+  <a href="#inicio" class="scroll-top-btn" id="scrollTopBtn">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <!-- WhatsApp float -->
+  <a href="https://wa.me/56900000000" target="_blank" class="wa-float" title="Chatear por WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+</div><!-- end boxed_wrapper -->
+
+
+<!-- Scripts -->
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/owl.js"></script>
+<script src="assets/js/aos.js"></script>
+<script src="assets/js/appear.js"></script>
+<script src="assets/js/odometer.js"></script>
+<script src="assets/js/wow.js"></script>
+<script src="assets/js/plugins.js"></script>
+
+<script>
+// ─── AOS INIT ───
+AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 80 });
+
+// ─── PRELOADER ─── (handled by inline script at end of body to wait full logo animation)
+
+// ─── STICKY HEADER ───
+$(window).on('scroll', function() {
+  var scrollTop = $(this).scrollTop();
+  if (scrollTop > 100) {
+    $('header.main-header').addClass('fixed-header');
+  } else {
+    $('header.main-header').removeClass('fixed-header');
+  }
+  // scroll top btn
+  if (scrollTop > 400) {
+    $('#scrollTopBtn').addClass('visible');
+  } else {
+    $('#scrollTopBtn').removeClass('visible');
+  }
+});
+
+// ─── SCROLL TOP ───
+$('#scrollTopBtn').on('click', function(e) {
+  e.preventDefault();
+  $('html, body').animate({ scrollTop: 0 }, 600, 'swing');
+});
+
+// ─── SMOOTH NAV SCROLL ───
+$('a[href^="#"]').on('click', function(e) {
+  var target = $(this).attr('href');
+  if (target === '#' || target.length < 2) return;
+  var $target = $(target);
+  if ($target.length) {
+    e.preventDefault();
+    $('html, body').animate({ scrollTop: $target.offset().top - 80 }, 700, 'swing');
+  }
+});
+
+// ─── SERVICIOS: VIDEO DE FONDO DINÁMICO AL HOVER ───
+(function() {
+  var bgItems = document.querySelectorAll('#svc-bg .svc-bg-item');
+  var cols    = document.querySelectorAll('.svc-col');
+  var current = 1; // primer ítem activo por defecto
+
+  function activateBg(idx) {
+    bgItems.forEach(function(el) { el.classList.remove('svc-active'); });
+    var target = document.querySelector('#svc-bg .svc-bg-item[data-svc="' + idx + '"]');
+    if (target) {
+      target.classList.add('svc-active');
+      var vid = target.querySelector('video');
+      if (vid && vid.paused) { vid.play().catch(function(){}); }
+    }
+    current = idx;
+  }
+
+  cols.forEach(function(col) {
+    col.addEventListener('mouseenter', function() {
+      var idx = this.getAttribute('data-svc');
+      if (idx != current) activateBg(idx);
+    });
+  });
+
+  // Asegura que el video 1 esté corriendo desde el inicio
+  var firstVid = document.querySelector('#svc-bg .svc-bg-item[data-svc="1"] video');
+  if (firstVid) firstVid.play().catch(function(){});
+})();
+
+// ─── MOBILE MENU ───
+$('.mobile-nav-toggler').on('click', function() {
+  $('body').addClass('mobile-menu-visible');
+});
+$('.mobile-menu .close-btn, .menu-backdrop').on('click', function() {
+  $('body').removeClass('mobile-menu-visible');
+});
+
+// ─── HERO VIDEO ROTATOR (crossfade starts before end, 0.8x speed) ───
+(function() {
+  var videos  = document.querySelectorAll('.hero-video-wrap video');
+  var dots    = document.querySelectorAll('.hvd');
+  var current = 0;
+  var transitioning = false;
+  // How many seconds before end to start the crossfade (must match CSS transition duration)
+  var FADE_BEFORE = 1.4;
+
+  function goTo(idx) {
+    if (transitioning) return;
+    transitioning = true;
+    var prev = current;
+    current = idx % videos.length;
+
+    // Fade in next video (starts playing underneath)
+    var next = videos[current];
+    next.currentTime = 0;
+    next.playbackRate = 0.8;
+    next.play().catch(function(){});
+    next.classList.add('active');          // opacity 0→1 via CSS transition (1.4s)
+    if (dots[current]) { dots[current].classList.add('active'); }
+
+    // Fade out current after a tiny frame to let 'active' class paint
+    setTimeout(function() {
+      videos[prev].classList.remove('active');  // opacity 1→0
+      if (dots[prev]) { dots[prev].classList.remove('active'); }
+      // Allow next transition once CSS fade completes
+      setTimeout(function() {
+        videos[prev].pause();
+        transitioning = false;
+      }, 1450);
+    }, 50);
+  }
+
+  // Watch each video's time — trigger crossfade FADE_BEFORE seconds from end
+  videos.forEach(function(v, i) {
+    v.playbackRate = 0.8;
+    v.addEventListener('timeupdate', function() {
+      if (i !== current) return;
+      if (!v.duration || transitioning) return;
+      if (v.duration - v.currentTime <= FADE_BEFORE) {
+        goTo((i + 1) % videos.length);
+      }
+    });
+  });
+
+  // Manual dot click
+  dots.forEach(function(dot, i) {
+    dot.addEventListener('click', function() {
+      transitioning = false; // allow override
+      goTo(i);
+    });
+  });
+
+  // Start first video
+  videos[0].playbackRate = 0.8;
+  videos[0].play().catch(function(){});
+})();
+
+// ─── ODOMETER / COUNTERS ───
+$('.odometer').each(function() {
+  var $el = $(this);
+  var count = $el.data('count');
+  $(window).on('scroll.od', function() {
+    if ($el.offset().top < $(window).scrollTop() + $(window).height() - 100) {
+      $el.html(count);
+      $(window).off('scroll.od');
+    }
+  });
+});
+
+// ─── PROCESO BLOB ANIMATION ───
+(function() {
+  var canvas = document.getElementById('procesoCanvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var W = 1000, H = 360, CY = H * 0.5;
+  var R = 68;
+  var POS = [155, 368, 632, 845];
+  var CX = W / 2;
+  var COLS = ['#0F2D50','#1d4370','#1F5F9A','#2575BD'];
+  var STEPS = [
+    {n:'01', t:'Solicitas',   s:'WhatsApp · Web · Teléfono'},
+    {n:'02', t:'Cotizamos',   s:'Respuesta en 2 horas'},
+    {n:'03', t:'Compramos',   s:'Gestión completa'},
+    {n:'04', t:'Entregamos',  s:'24h directo a faena'}
+  ];
+  var TOTAL = 14;
+
+  function resize() {
+    var wrap = canvas.parentElement;
+    if (!wrap) return;
+    var scale = Math.min(1, wrap.offsetWidth / W);
+    canvas.style.width  = (W * scale) + 'px';
+    canvas.style.height = (H * scale) + 'px';
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function ease(t) { return t<0.5 ? 2*t*t : -1+(4-2*t)*t; }
+
+  function getBalls(t) {
+    var balls = [], mergeStart = 11.5, mergeEnd = 14;
+    for (var i = 0; i < 4; i++) {
+      var aS = 2 + i * 1.5, aE = aS + 1.5;
+      var x, la;
+      if (t < aS) {
+        x = CX; la = 0;
+      } else if (t < aE) {
+        var p = (t - aS) / 1.5;
+        x = CX + (POS[i] - CX) * ease(p);
+        la = Math.max(0, (p - 0.4) / 0.6);
+      } else if (t < mergeStart) {
+        x = POS[i]; la = 1;
+      } else if (t < mergeEnd) {
+        var p = (t - mergeStart) / (mergeEnd - mergeStart);
+        x = POS[i] + (CX - POS[i]) * ease(p);
+        la = Math.max(0, 1 - p * 2.8);
+      } else {
+        x = CX; la = 0;
+      }
+      balls.push({x:x, r:R, la:la, col:COLS[i], step:STEPS[i]});
+    }
+    return balls;
+  }
+
+  function drawBridge(b1, b2) {
+    var dx = b2.x - b1.x;
+    var d  = Math.abs(dx);
+    var threshold = (b1.r + b2.r) * 2.1;
+    if (d >= threshold) return;
+    var strength = 1 - d / threshold;
+    var spread = (Math.PI / 2.2) * strength;
+    var p1x = b1.x + Math.cos(Math.PI/2 + spread) * b1.r;
+    var p1y = CY   + Math.sin(Math.PI/2 + spread) * b1.r;
+    var p2x = b1.x + Math.cos(-Math.PI/2 - spread) * b1.r;
+    var p2y = CY   + Math.sin(-Math.PI/2 - spread) * b1.r;
+    var p3x = b2.x + Math.cos(Math.PI/2 - spread) * b2.r;
+    var p3y = CY   + Math.sin(Math.PI/2 - spread) * b2.r;
+    var p4x = b2.x + Math.cos(-Math.PI/2 + spread) * b2.r;
+    var p4y = CY   + Math.sin(-Math.PI/2 + spread) * b2.r;
+    var hl  = d * 0.38;
+    var c1x = b1.x + hl, c2x = b2.x - hl;
+    var grad = ctx.createLinearGradient(b1.x, 0, b2.x, 0);
+    grad.addColorStop(0, b1.col);
+    grad.addColorStop(1, b2.col);
+    ctx.beginPath();
+    ctx.moveTo(p1x, p1y);
+    ctx.bezierCurveTo(c1x, CY, c2x, CY, p3x, p3y);
+    ctx.lineTo(p4x, p4y);
+    ctx.bezierCurveTo(c2x, CY, c1x, CY, p2x, p2y);
+    ctx.closePath();
+    ctx.fillStyle = grad;
+    ctx.fill();
+  }
+
+  var startTime = null;
+  function draw(ts) {
+    if (!startTime) startTime = ts;
+    var t = ((ts - startTime) / 1000) % TOTAL;
+    ctx.clearRect(0, 0, W, H);
+    var balls = getBalls(t);
+
+    // bridges
+    for (var i = 0; i < balls.length - 1; i++) drawBridge(balls[i], balls[i+1]);
+
+    // circles
+    for (var i = 0; i < balls.length; i++) {
+      var b = balls[i];
+      ctx.beginPath();
+      ctx.arc(b.x, CY, b.r, 0, Math.PI*2);
+      ctx.fillStyle = b.col;
+      ctx.fill();
+    }
+
+    // labels
+    ctx.textAlign = 'center';
+    for (var i = 0; i < balls.length; i++) {
+      var b = balls[i];
+      if (b.la <= 0) continue;
+      ctx.save();
+      ctx.globalAlpha = b.la;
+      // step number
+      ctx.font = '700 11px "Outfit", sans-serif';
+      ctx.fillStyle = '#2575BD';
+      ctx.letterSpacing = '0.15em';
+      ctx.fillText(b.step.n, b.x, CY - b.r - 46);
+      // title
+      ctx.font = '700 21px "Outfit", sans-serif';
+      ctx.fillStyle = '#0D1821';
+      ctx.fillText(b.step.t, b.x, CY - b.r - 24);
+      // subtitle below
+      ctx.font = '400 12px "Outfit", sans-serif';
+      ctx.fillStyle = 'rgba(15,25,40,0.48)';
+      ctx.fillText(b.step.s, b.x, CY + b.r + 26);
+      ctx.restore();
+    }
+
+    requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
+})();
+</script>
+
+<!-- Preloader: hide after logo animation completes (does not depend on window.load) -->
+<script>
+(function(){
+  // Total: max delay (0.3s) + draw (2.0s) + fill (0.7s) = ~3.0s.
+  var HOLD_MS = 3000;
+  function hide(){
+    var w = document.querySelector('.loader-wrap');
+    var p = document.querySelector('.handle-preloader');
+    if(!w) return;
+    if(p) p.classList.add('vx-fade-out');
+    // match CSS transition (0.9s)
+    setTimeout(function(){ w.style.display = 'none'; }, 950);
+  }
+  setTimeout(hide, HOLD_MS);
+})();
+</script>
+
+</body>
+</html>
