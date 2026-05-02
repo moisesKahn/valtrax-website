@@ -209,7 +209,7 @@
   .nosotros-sticky > .container-fluid { padding: 0 80px; position: relative; z-index: 2; width: 100%; }
   /* Truck scene — PNG tiene ~40% espacio vacío arriba, por eso height=165% para que el camión real llene la sección */
   .truck-scene { position: absolute; inset: 0; pointer-events: none; z-index: 3; overflow: hidden; }
-  .truck-wrap { position: absolute; bottom: 0; left: 0; height: 165%; width: auto; transform: translateX(105vw); will-change: transform; }
+  .truck-wrap { position: absolute; top: 50%; left: 0; height: 130%; width: auto; will-change: transform; }
   .truck-img { height: 100%; width: auto; display: block; user-select: none; pointer-events: none; }
   .section-label { font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--valtrax-blue); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
   .section-label::before { content: ''; width: 32px; height: 2px; background: var(--valtrax-blue); flex-shrink: 0; }
@@ -1254,7 +1254,7 @@ $('.odometer').each(function() {
   }
 
   function applyTransforms() {
-    truckWrap.style.transform = 'translateX(' + currentX.toFixed(3) + 'vw)';
+    truckWrap.style.transform = 'translateY(-50%) translateX(' + currentX.toFixed(3) + 'vw)';
   }
 
   function tick() {
