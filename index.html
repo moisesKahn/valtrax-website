@@ -201,15 +201,15 @@
   /* ─── NOSOTROS ─── */
   /* ─── NOSOTROS ─── */
   .nosotros-section { position: relative; background: #fff; }
-  .nosotros-sticky { position: sticky; top: 80px; height: 75vh; overflow: hidden; display: flex; align-items: flex-start; padding-top: 32px; }
-  .nosotros-title { font-family: 'Outfit', sans-serif; font-size: clamp(46px, 5.5vw, 80px); font-weight: 800; color: var(--valtrax-dark); line-height: 1.0; margin-bottom: 16px; }
+  .nosotros-sticky { position: sticky; top: 80px; height: 75vh; overflow: hidden; display: flex; align-items: center; }
+  .nosotros-title { font-family: 'Outfit', sans-serif; font-size: clamp(56px, 8vw, 120px); font-weight: 800; color: var(--valtrax-dark); line-height: 0.95; margin-bottom: 14px; }
   .nosotros-title .shine-word { background: linear-gradient(100deg, #4FA3E8 0%, #4FA3E8 35%, #ffffff 50%, #4FA3E8 65%, #4FA3E8 100%); background-size: 250% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: procShine 6s linear infinite; }
-  .nosotros-kicker { font-size: 14px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--valtrax-blue); margin-bottom: 28px; display: flex; align-items: center; gap: 10px; }
+  .nosotros-kicker { font-size: 14px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--valtrax-blue); margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
   .nosotros-kicker::before { content: ''; width: 32px; height: 2px; background: var(--valtrax-blue); flex-shrink: 0; }
   .nosotros-sticky > .container-fluid { padding: 0 80px; position: relative; z-index: 2; width: 100%; }
-  /* Truck scene */
+  /* Truck scene — PNG tiene ~40% espacio vacío arriba, por eso height=165% para que el camión real llene la sección */
   .truck-scene { position: absolute; inset: 0; pointer-events: none; z-index: 3; overflow: hidden; }
-  .truck-wrap { position: absolute; bottom: 0; left: 0; height: 98%; width: auto; transform: translateX(105vw); will-change: transform; }
+  .truck-wrap { position: absolute; bottom: 0; left: 0; height: 165%; width: auto; transform: translateX(105vw); will-change: transform; }
   .truck-img { height: 100%; width: auto; display: block; user-select: none; pointer-events: none; }
   .section-label { font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--valtrax-blue); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
   .section-label::before { content: ''; width: 32px; height: 2px; background: var(--valtrax-blue); flex-shrink: 0; }
