@@ -6,6 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <title>VALTRAX Industrial SPA — Insumos para la Minería del Norte de Chile</title>
 <meta name="description" content="VALTRAX es tu partner estratégico en la provisión de insumos industriales, ferretería y equipamiento para la minería. Respondemos donde y cuando la operación lo exige.">
+<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+<link rel="shortcut icon" href="assets/images/favicon.svg">
 
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -184,10 +186,10 @@
   .hero-headline .hero-shine { display: block; background: linear-gradient(100deg, #4FA3E8 0%, #4FA3E8 35%, #ffffff 50%, #4FA3E8 65%, #4FA3E8 100%); background-size: 250% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: procShine 6s linear infinite; }
   .hero-sub { font-size: 17px; color: rgba(255,255,255,0.72); line-height: 1.65; max-width: 520px; margin-bottom: 40px; }
   .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; margin-bottom: 56px; }
-  .btn-primary-vx { background: var(--valtrax-blue); color: #fff; padding: 16px 36px; border-radius: 4px; font-weight: 700; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; transition: background 0.2s, transform 0.2s; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
-  .btn-primary-vx:hover { background: #4FA3E8; color: #fff; transform: translateY(-2px); text-decoration: none; }
-  .btn-outline-vx { border: 2px solid rgba(255,255,255,0.35); color: #fff; padding: 14px 32px; border-radius: 4px; font-weight: 600; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; transition: border-color 0.2s, color 0.2s; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
-  .btn-outline-vx:hover { border-color: #4FA3E8; color: #4FA3E8; text-decoration: none; }
+  .btn-primary-vx { background: var(--valtrax-blue); color: #fff; padding: 14px 32px; border-radius: 100px; font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; transition: background 0.2s, transform 0.2s, box-shadow 0.2s; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; box-shadow: 0 4px 20px rgba(27,96,176,0.35); }
+  .btn-primary-vx:hover { background: #4FA3E8; color: #fff; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(79,163,232,0.45); text-decoration: none; }
+  .btn-outline-vx { border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.85); padding: 14px 32px; border-radius: 100px; font-weight: 600; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; transition: border-color 0.2s, color 0.2s, background 0.2s; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; background: rgba(255,255,255,0.05); backdrop-filter: blur(8px); }
+  .btn-outline-vx:hover { border-color: #4FA3E8; color: #4FA3E8; background: rgba(79,163,232,0.08); text-decoration: none; }
   .hero-stats { display: flex; gap: 32px; flex-wrap: wrap; }
   .hero-stat-item { display: flex; flex-direction: column; gap: 4px; }
   .hero-stat-num { font-family: 'Outfit', sans-serif; font-size: 36px; font-weight: 800; color: #fff; line-height: 1; }
@@ -330,9 +332,13 @@
   .valores-divider { width: 100%; height: 1px; background: rgba(255,255,255,0.06); margin-bottom: 72px; }
 
   /* ─── CTA ─── */
-  .cta-valtrax { background: linear-gradient(135deg, #091E35 0%, #1d4370 60%, #274F85 100%); padding: 100px 80px; text-align: center; }
-  .cta-valtrax h2 { font-family: 'Outfit', sans-serif; font-size: clamp(32px, 4vw, 56px); font-weight: 800; color: #fff; margin-bottom: 16px; }
-  .cta-valtrax p { font-size: 18px; color: rgba(255,255,255,0.72); max-width: 540px; margin: 0 auto 40px; }
+  .cta-valtrax { background: #030810; padding: 120px 80px; text-align: center; position: relative; overflow: hidden; }
+  .cta-valtrax::before { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); opacity: 0.4; pointer-events: none; }
+  .cta-valtrax::after { content: ''; position: absolute; width: 900px; height: 600px; border-radius: 50%; background: radial-gradient(ellipse, rgba(29,67,112,0.45) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%,-50%); pointer-events: none; }
+  .cta-valtrax > * { position: relative; z-index: 2; }
+  .cta-valtrax h2 { font-family: 'Outfit', sans-serif; font-size: clamp(36px, 4.5vw, 68px); font-weight: 800; color: #fff; line-height: 0.95; letter-spacing: -0.03em; margin-bottom: 20px; }
+  .cta-valtrax p { font-size: 17px; color: rgba(255,255,255,0.55); max-width: 540px; margin: 0 auto 40px; line-height: 1.65; }
+  .cta-valtrax h2 em { font-style: normal; background: linear-gradient(100deg, #4FA3E8 0%, #4FA3E8 40%, #fff 55%, #4FA3E8 70%, #4FA3E8 100%); background-size: 250% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: procShine 6s linear infinite; }
   .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
   .cta-contact-strip { background: rgba(255,255,255,0.08); border-top: 1px solid rgba(255,255,255,0.1); padding: 32px 80px; display: flex; justify-content: center; gap: 64px; flex-wrap: wrap; }
   .cta-contact-item { display: flex; align-items: center; gap: 14px; }
@@ -925,11 +931,11 @@
   <section id="contacto">
     <div class="cta-valtrax">
       <div data-aos="zoom-in">
-        <p style="font-size:13px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:12px;">¿Tienes una urgencia?</p>
-        <h2>Nosotros la resolvemos.</h2>
+        <div class="valores-kicker" style="margin: 0 auto 28px;">¿Tienes una urgencia?</div>
+        <h2>Nosotros la <em>resolvemos.</em></h2>
         <p>Envíanos tu requerimiento ahora. Cotizamos en menos de 2 horas hábiles y entregamos en 24 horas.</p>
         <div class="cta-actions">
-          <a href="https://wa.me/56900000000" target="_blank" class="btn-primary-vx" style="background:#25D366;">
+          <a href="https://wa.me/56900000000" target="_blank" class="btn-primary-vx" style="background:#25D366;box-shadow:0 4px 20px rgba(37,211,102,0.35);">
             <i class="fab fa-whatsapp"></i> WhatsApp Directo
           </a>
           <a href="mailto:contacto@valtrax.cl" class="btn-outline-vx">
