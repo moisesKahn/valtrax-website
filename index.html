@@ -249,48 +249,9 @@
   .svc-col:hover .svc-tag { color: rgba(255,255,255,0.9); background: rgba(91,159,216,0.25); }
 
   /* ─── PROCESO ─── */
-  .proceso-section { position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; background: #020912; overflow: hidden; padding: 120px 0 80px; }
-  .proceso-section .container-fluid { padding: 0 80px; position: relative; z-index: 2; }
-  /* Video de fondo */
-  .proceso-video-bg { position: absolute; inset: 0; z-index: 0; }
-  .proceso-video-bg video { width: 100%; height: 100%; object-fit: cover; opacity: 0.18; }
-  .proceso-video-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, #020912 0%, rgba(2,9,18,0.45) 40%, rgba(2,9,18,0.55) 70%, #020912 100%); }
-  /* Layout superior */
-  .proceso-top { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; gap: 40px; }
-  .proceso-top-left { max-width: 600px; }
-  .proceso-top-right { text-align: right; flex-shrink: 0; }
-  .proceso-kicker { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 16px; display: block; }
-  /* Heading grande con shine */
-  .proceso-heading { font-family: 'Outfit', sans-serif; font-size: clamp(52px, 8vw, 120px); font-weight: 800; line-height: 0.88; letter-spacing: -0.03em; color: #fff; margin-bottom: 0; }
-  .proceso-heading .shine-line { display: block; background: linear-gradient(100deg, #4FA3E8 0%, #4FA3E8 35%, #ffffff 50%, #4FA3E8 65%, #4FA3E8 100%); background-size: 250% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: procShine 3s linear infinite; }
-  @keyframes procShine { 0% { background-position: 200% center; } 100% { background-position: -200% center; } }
-  .proceso-subtitle { font-size: 15px; color: rgba(255,255,255,0.52); margin-top: 20px; line-height: 1.6; max-width: 480px; }
-  .proceso-stat { font-family: 'Outfit', sans-serif; font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.5; }
-  .proceso-stat strong { display: block; font-size: clamp(28px, 3vw, 42px); font-weight: 800; color: #fff; letter-spacing: -0.02em; line-height: 1; margin-bottom: 4px; }
-  /* Separador */
-  .proceso-divider { width: 100%; height: 1px; background: rgba(255,255,255,0.07); margin-bottom: 56px; }
-  /* Grid de pasos */
-  .proceso-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid rgba(255,255,255,0.07); }
-  .proceso-step { padding: 36px 32px 40px; border-right: 1px solid rgba(255,255,255,0.07); position: relative; transition: background 0.35s; will-change: transform, opacity, filter; }
-  .proceso-step:last-child { border-right: none; }
-  .proceso-step:hover { background: rgba(79,163,232,0.06); }
-  .proceso-step-num { font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.15em; color: rgba(79,163,232,0.7); margin-bottom: 32px; display: block; }
-  .proceso-step-title { font-family: 'Outfit', sans-serif; font-size: 26px; font-weight: 700; color: #fff; margin-bottom: 10px; }
-  .proceso-step-desc { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.6; }
-  .proceso-step-arrow { position: absolute; top: 36px; right: 28px; width: 32px; height: 32px; border: 1px solid rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: border-color 0.3s, background 0.3s; }
-  .proceso-step:hover .proceso-step-arrow { border-color: rgba(79,163,232,0.5); background: rgba(79,163,232,0.12); }
-  .proceso-step-arrow svg { transition: transform 0.3s; }
-  .proceso-step:hover .proceso-step-arrow svg { transform: translate(2px,-2px); }
-  /* CTA button */
-  .proceso-anim-wrap { width: 100%; border-radius: 12px; overflow: hidden; position: relative; background: #060d1a; }
-  .proceso-anim-frame { width: 100%; height: 0; padding-bottom: 56.25%; border: none; display: block; pointer-events: none; }
-  /* aspect-ratio fix */
-  .proceso-anim-wrap { padding-bottom: 56.25%; height: 0; position: relative; }
-  .proceso-anim-frame { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; pointer-events: none; }
-  .proceso-cta-wrap { margin-top: 48px; display: flex; align-items: center; gap: 24px; }
-  .proceso-cta { display: inline-flex; align-items: center; gap: 10px; background: #fff; color: #020912; font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 700; padding: 14px 28px; border-radius: 100px; text-decoration: none; transition: background 0.25s, gap 0.25s; }
-  .proceso-cta:hover { background: #e8f4ff; gap: 16px; }
-  .proceso-cta-note { font-size: 13px; color: rgba(255,255,255,0.35); }
+  .proceso-section { position: relative; background: #060d1a; line-height: 0; font-size: 0; }
+  .proceso-anim-wrap { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+  .proceso-anim-frame { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; display: block; }
 
   /* ─── COBERTURA ─── */
   .cobertura-section { background: var(--valtrax-dark); padding: 120px 0; }
@@ -412,12 +373,10 @@
     .hero-stats { gap: 24px; }
     .nosotros-section .container-fluid,
     .servicios-section .container-fluid,
-    .proceso-section .container-fluid,
     .cobertura-section .container-fluid,
     .valores-section .container-fluid { padding: 0 32px; }
     .servicios-grid { grid-template-columns: 1fr 1fr; }
-    .proceso-grid { grid-template-columns: 1fr 1fr; gap: 48px; }
-    .proceso-grid::before { display: none; }
+
     .cobertura-grid { grid-template-columns: 1fr; }
     .valores-grid { grid-template-columns: 1fr 1fr; }
     .cta-valtrax { padding: 80px 32px; }
@@ -430,7 +389,6 @@
     .servicios-grid { grid-template-columns: 1fr; }
     .valores-grid { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr; }
-    .proceso-grid { grid-template-columns: 1fr; }
     .nosotros-img-grid { grid-template-columns: 1fr; }
     .nosotros-img-placeholder.span-2 { grid-column: span 1; }
   }
@@ -803,53 +761,15 @@
        PROCESO
   ═══════════════════════════════════════ -->
   <section class="proceso-section" id="proceso">
-    <!-- Video de fondo -->
-    <div class="proceso-video-bg">
-      <video autoplay muted loop playsinline>
-        <source src="assets/videos/equipamiento-industrial.mp4" type="video/mp4">
-      </video>
-    </div>
-
-    <div class="container-fluid">
-      <!-- Superior: heading + stat -->
-      <div class="proceso-top">
-        <div class="proceso-top-left">
-          <span class="proceso-kicker">Proceso de Compra</span>
-          <h2 class="proceso-heading">
-            Cuatro pasos.
-            <span class="shine-line">Sin complicaciones.</span>
-          </h2>
-          <p class="proceso-subtitle">Desde que nos contactas hasta que el pedido llega a tu faena. Sin burocracia, sin esperas innecesarias.</p>
-        </div>
-        <div class="proceso-top-right">
-          <div class="proceso-stat">
-            <strong>+2h</strong>Tiempo de respuesta<br>para tu cotización
-          </div>
-        </div>
-      </div>
-
-      <div class="proceso-divider" style="transform-origin:left;"></div>
-
-      <!-- Animación 4 pasos -->
-      <div class="proceso-anim-wrap">
-        <iframe
-          src="assets/proceso-animation.html"
-          class="proceso-anim-frame"
-          frameborder="0"
-          scrolling="no"
-          allowtransparency="true"
-          title="Proceso VALTRAX"
-        ></iframe>
-      </div>
-
-      <!-- CTA -->
-      <div class="proceso-cta-wrap">
-        <a href="https://wa.me/56912345678" class="proceso-cta" target="_blank">
-          Cotiza ahora
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="#020912" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-        <span class="proceso-cta-note">Sin compromiso · Respuesta inmediata</span>
-      </div>
+    <div class="proceso-anim-wrap">
+      <iframe
+        src="assets/proceso-animation.html"
+        class="proceso-anim-frame"
+        frameborder="0"
+        scrolling="no"
+        allowtransparency="true"
+        title="Proceso VALTRAX"
+      ></iframe>
     </div>
   </section>
 
