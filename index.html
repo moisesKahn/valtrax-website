@@ -178,8 +178,7 @@
   .hero-overlay { position: absolute; inset: 0; z-index: 2; background: linear-gradient(to right, rgba(10,20,35,0.92) 40%, rgba(10,20,35,0.30) 100%), linear-gradient(to bottom, rgba(10,20,35,0.55) 0%, transparent 40%); }
   .hero-content { position: relative; z-index: 3; padding: 0 80px; max-width: 1100px; }
   .hero-actions { position: absolute; bottom: 52px; left: 80px; z-index: 3; display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
-  .hero-eyebrow { display: inline-flex; align-items: center; gap: 10px; color: #5B9FD8; font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 24px; }
-  .hero-eyebrow::before { content: ''; width: 32px; height: 2px; background: #5B9FD8; flex-shrink: 0; }
+  .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.06); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.12); padding: 6px 14px; border-radius: 100px; margin-bottom: 28px; }
   .hero-headline { font-family: 'Outfit', sans-serif; font-size: clamp(64px, 11vw, 155px); font-weight: 800; color: #fff; line-height: 0.88; letter-spacing: -0.03em; margin-bottom: 28px; }
   @keyframes procShine { 0% { background-position: 200% center; } 100% { background-position: -200% center; } }
   .hero-headline .hero-shine { display: block; background: linear-gradient(100deg, #4FA3E8 0%, #4FA3E8 35%, #ffffff 50%, #4FA3E8 65%, #4FA3E8 100%); background-size: 250% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: procShine 6s linear infinite; }
@@ -204,15 +203,13 @@
   .nosotros-sticky { position: sticky; top: 80px; height: 75vh; overflow: hidden; display: flex; align-items: center; }
   .nosotros-title { font-family: 'Outfit', sans-serif; font-size: clamp(46px, 5.5vw, 80px); font-weight: 800; color: var(--valtrax-dark); line-height: 1.0; margin-bottom: 16px; }
   .nosotros-title .shine-word { background: linear-gradient(100deg, #4FA3E8 0%, #4FA3E8 35%, #ffffff 50%, #4FA3E8 65%, #4FA3E8 100%); background-size: 250% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: procShine 6s linear infinite; }
-  .nosotros-kicker { font-size: 14px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--valtrax-blue); margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
-  .nosotros-kicker::before { content: ''; width: 32px; height: 2px; background: var(--valtrax-blue); flex-shrink: 0; }
+  .nosotros-kicker { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(15,32,60,0.6); background: rgba(27,96,176,0.07); border: 1px solid rgba(27,96,176,0.15); padding: 6px 14px; border-radius: 100px; margin-bottom: 20px; }
   .nosotros-sticky > .container-fluid { padding: 0 80px; position: relative; z-index: 2; width: 100%; }
   /* Truck scene — PNG tiene ~40% espacio vacío arriba, por eso height=165% para que el camión real llene la sección */
   .truck-scene { position: absolute; inset: 0; pointer-events: none; z-index: 3; overflow: hidden; }
   .truck-wrap { position: absolute; top: 50%; left: 0; height: 130%; width: auto; will-change: transform; }
   .truck-img { height: 100%; width: auto; display: block; user-select: none; pointer-events: none; }
-  .section-label { font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--valtrax-blue); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
-  .section-label::before { content: ''; width: 32px; height: 2px; background: var(--valtrax-blue); flex-shrink: 0; }
+  .section-label { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.06); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 100px; margin-bottom: 20px; }
   .section-title { font-family: 'Outfit', sans-serif; font-size: clamp(32px, 3.5vw, 52px); font-weight: 800; color: var(--valtrax-dark); line-height: 1.1; margin-bottom: 24px; }
   .section-body { font-size: 17px; color: var(--text-color); line-height: 1.7; }
   .nosotros-quote { border-left: 3px solid var(--valtrax-blue); padding-left: 24px; margin: 18px 0 0; font-size: 17px; font-weight: 500; color: var(--valtrax-dark); font-style: italic; line-height: 1.5; }
