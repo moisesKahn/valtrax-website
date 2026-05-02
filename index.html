@@ -199,18 +199,55 @@
   .hvd.active { background: #5B9FD8; width: 52px; }
 
   /* ─── NOSOTROS ─── */
-  .nosotros-section { background: #fff; padding: 120px 0; }
-  .nosotros-section .container-fluid { padding: 0 80px; }
+  .nosotros-section { background: #fff; position: relative; }
+  .nosotros-scroll-scene { height: 280vh; position: relative; }
+  .nosotros-sticky {
+    position: sticky; top: 80px;
+    height: calc(100vh - 80px);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+  .nosotros-text-col {
+    position: relative; z-index: 3;
+    width: 46%; flex-shrink: 0;
+    padding: 0 80px;
+  }
+  .nosotros-truck-scene {
+    position: absolute; inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .truck-wrap {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 78vw;
+    max-width: 1050px;
+    will-change: transform;
+    transform: translateX(110vw) translateY(-54%);
+  }
+  .truck-main-img {
+    width: 100%; display: block;
+    mix-blend-mode: multiply;
+    user-select: none; pointer-events: none;
+  }
+  .wheel-clip {
+    position: absolute;
+    border-radius: 50%;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .truck-wheel-img {
+    position: absolute;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+  }
   .section-label { font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--valtrax-blue); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
   .section-label::before { content: ''; width: 32px; height: 2px; background: var(--valtrax-blue); flex-shrink: 0; }
   .section-title { font-family: 'Outfit', sans-serif; font-size: clamp(32px, 3.5vw, 52px); font-weight: 800; color: var(--valtrax-dark); line-height: 1.1; margin-bottom: 24px; }
   .section-body { font-size: 17px; color: var(--text-color); line-height: 1.7; }
   .nosotros-quote { border-left: 3px solid var(--valtrax-blue); padding-left: 24px; margin: 32px 0; font-size: 18px; font-weight: 500; color: var(--valtrax-dark); font-style: italic; line-height: 1.55; }
-  .nosotros-img-grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 200px 200px; gap: 12px; }
-  .nosotros-img-placeholder { background: linear-gradient(135deg, #1B3A5C, #2B6CB0); border-radius: 6px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
-  .nosotros-img-placeholder.span-2 { grid-column: span 2; }
-  .nosotros-img-placeholder svg { opacity: 0.5; }
-  .nosotros-img-placeholder p { color: rgba(255,255,255,0.5); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; font-family: monospace; }
   .stat-strip { background: var(--valtrax-dark); padding: 48px 80px; display: flex; justify-content: space-around; align-items: center; gap: 32px; flex-wrap: wrap; }
   /* stat-strip cinematic */
   .stat-strip { position: relative; overflow: hidden; }
@@ -613,9 +650,11 @@
        NOSOTROS
   ═══════════════════════════════════════ -->
   <section class="nosotros-section" id="nosotros">
-    <div class="container-fluid">
-      <div class="row align-items-center g-5">
-        <div class="col-lg-6" data-aos="fade-right" data-aos-duration="800">
+    <div class="nosotros-scroll-scene">
+      <div class="nosotros-sticky">
+
+        <!-- Columna de texto -->
+        <div class="nosotros-text-col">
           <div class="section-label">Quiénes Somos</div>
           <h2 class="section-title">Nacimos desde la experiencia directa en el rubro minero.</h2>
           <p class="section-body">VALTRAX SpA es una empresa chilena especializada en la provisión urgente de insumos, materiales y equipamiento para la industria minera. Contamos con personal altamente capacitado en compras industriales, logística de respuesta rápida y conocimiento del mercado de proveedores.</p>
@@ -632,22 +671,20 @@
             </a>
           </div>
         </div>
-        <div class="col-lg-6" data-aos="fade-left" data-aos-duration="800" data-aos-delay="100">
-          <div class="nosotros-img-grid">
-            <div class="nosotros-img-placeholder span-2" style="height:240px;">
-              <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M8 36L24 12L40 36H8Z" stroke="white" stroke-width="2" fill="none"/><circle cx="24" cy="8" r="4" stroke="white" stroke-width="2" fill="none"/></svg>
-              <p>camión minero / faena</p>
+
+        <!-- Camión 3D animado -->
+        <div class="nosotros-truck-scene">
+          <div class="truck-wrap" id="truckWrap">
+            <img src="assets/images/truck-mining.png" alt="Camión minero VALTRAX" class="truck-main-img" id="truckMainImg" draggable="false">
+            <div class="wheel-clip" id="wheelFront">
+              <img src="assets/images/truck-mining.png" alt="" class="truck-wheel-img" id="wheelImgFront" draggable="false">
             </div>
-            <div class="nosotros-img-placeholder" style="height:200px;background:linear-gradient(135deg,#0A3D7A,#1B60B0);">
-              <svg width="36" height="36" viewBox="0 0 48 48" fill="none"><rect x="8" y="20" width="32" height="20" stroke="white" stroke-width="2" fill="none"/><path d="M16 20V14a8 8 0 0116 0v6" stroke="white" stroke-width="2" fill="none"/></svg>
-              <p>bodega / logística</p>
-            </div>
-            <div class="nosotros-img-placeholder" style="height:200px;background:linear-gradient(135deg,#162940,#1B3A5C);">
-              <svg width="36" height="36" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="16" stroke="white" stroke-width="2" fill="none"/><path d="M24 12v12l8 4" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
-              <p>entrega express</p>
+            <div class="wheel-clip" id="wheelRear">
+              <img src="assets/images/truck-mining.png" alt="" class="truck-wheel-img" id="wheelImgRear" draggable="false">
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -1245,7 +1282,117 @@ $('.odometer').each(function() {
   }
   setTimeout(hide, HOLD_MS);
 })();
-</script>
 
-</body>
-</html>
+// ─── TRUCK SCROLL ANIMATION ───────────────────────────────────────────────
+(function() {
+  var section   = document.getElementById('nosotros');
+  var truckWrap = document.getElementById('truckWrap');
+  var mainImg   = document.getElementById('truckMainImg');
+  var wFront    = document.getElementById('wheelFront');
+  var wRear     = document.getElementById('wheelRear');
+  var wiFront   = document.getElementById('wheelImgFront');
+  var wiRear    = document.getElementById('wheelImgRear');
+  if (!truckWrap || !mainImg) return;
+
+  // ── Wheel geometry as fraction of image (side-view, truck faces LEFT)
+  // Front wheel (under cab, left side of image)
+  var FX = 0.225, FY = 0.725;
+  // Rear wheel (right side of image)
+  var RX = 0.635, RY = 0.725;
+  // Wheel radius as fraction of image width
+  var WR = 0.138;
+
+  var rotation  = 0;
+  var lastX     = null;
+  var imgW      = 0, imgH = 0;
+
+  function positionWheels() {
+    imgW = mainImg.offsetWidth;
+    imgH = mainImg.offsetHeight;
+    if (!imgW) return;
+
+    var r = WR * imgW;
+    var d = r * 2;
+
+    // Front wheel clip
+    var fx = FX * imgW - r, fy = FY * imgH - r;
+    wFront.style.cssText = 'position:absolute;border-radius:50%;overflow:hidden;pointer-events:none;'
+      + 'width:' + d + 'px;height:' + d + 'px;left:' + fx + 'px;top:' + fy + 'px;';
+    wiFront.style.cssText = 'position:absolute;pointer-events:none;mix-blend-mode:multiply;'
+      + 'width:' + imgW + 'px;height:' + imgH + 'px;left:' + (-fx) + 'px;top:' + (-fy) + 'px;'
+      + 'transform-origin:' + (FX * imgW) + 'px ' + (FY * imgH) + 'px;';
+
+    // Rear wheel clip
+    var rx = RX * imgW - r, ry = RY * imgH - r;
+    wRear.style.cssText = 'position:absolute;border-radius:50%;overflow:hidden;pointer-events:none;'
+      + 'width:' + d + 'px;height:' + d + 'px;left:' + rx + 'px;top:' + ry + 'px;';
+    wiRear.style.cssText = 'position:absolute;pointer-events:none;mix-blend-mode:multiply;'
+      + 'width:' + imgW + 'px;height:' + imgH + 'px;left:' + (-rx) + 'px;top:' + (-ry) + 'px;'
+      + 'transform-origin:' + (RX * imgW) + 'px ' + (RY * imgH) + 'px;';
+  }
+
+  function easeInOut(t) {
+    return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2;
+  }
+
+  function update() {
+    if (!section) return;
+    var sRect  = section.getBoundingClientRect();
+    var sH     = section.offsetHeight;
+    var vH     = window.innerHeight;
+    var vW     = window.innerWidth;
+
+    // progress 0→1 as user scrolls through the section
+    var scrolled = -sRect.top;
+    var maxScroll = sH - vH;
+    var progress = Math.max(0, Math.min(1, scrolled / maxScroll));
+
+    // Truck X: starts 110vw right → at progress 0.45 arrives at final resting position ~10vw right of center
+    var startX = vW * 1.15;
+    var endX   = vW * -0.25;
+    var truckX = startX + (endX - startX) * easeInOut(progress);
+
+    truckWrap.style.transform = 'translateX(' + truckX + 'px) translateY(-54%)';
+
+    // Wheel rotation: proportional to distance moved
+    if (imgW > 0) {
+      var circumference = Math.PI * (WR * 2 * imgW);
+      if (lastX !== null) {
+        var dx = truckX - lastX;
+        // truck moves left = negative dx = wheels rotate forward (negative angle for forward roll)
+        rotation += (dx / circumference) * 360;
+      }
+      lastX = truckX;
+      var rot = 'rotate(' + rotation + 'deg)';
+      wiFront.style.transform = rot;
+      wiRear.style.transform  = rot;
+    }
+  }
+
+  // Init wheel positions after image loads
+  if (mainImg.complete && mainImg.naturalWidth) {
+    positionWheels();
+  } else {
+    mainImg.addEventListener('load', positionWheels);
+  }
+
+  window.addEventListener('resize', function() {
+    positionWheels();
+    lastX = null;
+    update();
+  });
+
+  var ticking = false;
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      requestAnimationFrame(function() { update(); ticking = false; });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // Run once on load to set initial position
+  window.addEventListener('load', function() { positionWheels(); update(); });
+  update();
+})();
+
+</script>
