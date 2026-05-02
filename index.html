@@ -199,55 +199,24 @@
   .hvd.active { background: #5B9FD8; width: 52px; }
 
   /* ─── NOSOTROS ─── */
-  .nosotros-section { background: #fff; position: relative; }
-  .nosotros-scroll-scene { height: 280vh; position: relative; }
-  .nosotros-sticky {
-    position: sticky; top: 80px;
-    height: calc(100vh - 80px);
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-  }
-  .nosotros-text-col {
-    position: relative; z-index: 3;
-    width: 46%; flex-shrink: 0;
-    padding: 0 80px;
-  }
-  .nosotros-truck-scene {
-    position: absolute; inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-  }
-  .truck-wrap {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 78vw;
-    max-width: 1050px;
-    will-change: transform;
-    transform: translateX(110vw) translateY(-54%);
-  }
-  .truck-main-img {
-    width: 100%; display: block;
-    mix-blend-mode: multiply;
-    user-select: none; pointer-events: none;
-  }
-  .wheel-clip {
-    position: absolute;
-    border-radius: 50%;
-    overflow: hidden;
-    pointer-events: none;
-  }
-  .truck-wheel-img {
-    position: absolute;
-    mix-blend-mode: multiply;
-    pointer-events: none;
-  }
+  /* ─── NOSOTROS ─── */
+  .nosotros-section { position: relative; background: #fff; min-height: 260vh; }
+  .nosotros-sticky { position: sticky; top: 80px; height: calc(100vh - 80px); overflow: hidden; display: flex; align-items: center; }
+  .nosotros-sticky > .container-fluid { padding: 0 80px; position: relative; z-index: 2; width: 100%; }
+  /* Truck scene */
+  .truck-scene { position: absolute; inset: 0; pointer-events: none; z-index: 3; overflow: hidden; }
+  .truck-wrap { position: absolute; bottom: -2%; left: 0; width: 68vw; max-width: 1020px; transform: translateX(105vw); will-change: transform; }
+  .truck-img { width: 100%; height: auto; display: block; user-select: none; pointer-events: none; }
+  /* Wheel spin overlays */
+  .truck-wheel { position: absolute; border-radius: 50%; background: conic-gradient(rgba(35,20,3,0.52) 0deg 55deg, transparent 55deg 115deg, rgba(35,20,3,0.52) 115deg 175deg, transparent 175deg 235deg, rgba(35,20,3,0.52) 235deg 295deg, transparent 295deg 360deg); mix-blend-mode: multiply; will-change: transform; }
+  .truck-wheel-front { width: 21%; aspect-ratio: 1; left: 22%; top: 65%; transform: translate(-50%, -50%); }
+  .truck-wheel-rear  { width: 24%; aspect-ratio: 1; left: 73%; top: 63%; transform: translate(-50%, -50%); }
   .section-label { font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--valtrax-blue); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
   .section-label::before { content: ''; width: 32px; height: 2px; background: var(--valtrax-blue); flex-shrink: 0; }
   .section-title { font-family: 'Outfit', sans-serif; font-size: clamp(32px, 3.5vw, 52px); font-weight: 800; color: var(--valtrax-dark); line-height: 1.1; margin-bottom: 24px; }
   .section-body { font-size: 17px; color: var(--text-color); line-height: 1.7; }
   .nosotros-quote { border-left: 3px solid var(--valtrax-blue); padding-left: 24px; margin: 32px 0; font-size: 18px; font-weight: 500; color: var(--valtrax-dark); font-style: italic; line-height: 1.55; }
+  /* (nosotros-img-grid removed) */
   .stat-strip { background: var(--valtrax-dark); padding: 48px 80px; display: flex; justify-content: space-around; align-items: center; gap: 32px; flex-wrap: wrap; }
   /* stat-strip cinematic */
   .stat-strip { position: relative; overflow: hidden; }
@@ -428,8 +397,6 @@
     .servicios-grid { grid-template-columns: 1fr; }
     .valores-grid { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr; }
-    .nosotros-img-grid { grid-template-columns: 1fr; }
-    .nosotros-img-placeholder.span-2 { grid-column: span 1; }
   }
 
   /* hide mobile toggler always (nav hardcoded visible) */
@@ -650,41 +617,35 @@
        NOSOTROS
   ═══════════════════════════════════════ -->
   <section class="nosotros-section" id="nosotros">
-    <div class="nosotros-scroll-scene">
-      <div class="nosotros-sticky">
-
-        <!-- Columna de texto -->
-        <div class="nosotros-text-col">
-          <div class="section-label">Quiénes Somos</div>
-          <h2 class="section-title">Nacimos desde la experiencia directa en el rubro minero.</h2>
-          <p class="section-body">VALTRAX SpA es una empresa chilena especializada en la provisión urgente de insumos, materiales y equipamiento para la industria minera. Contamos con personal altamente capacitado en compras industriales, logística de respuesta rápida y conocimiento del mercado de proveedores.</p>
-          <blockquote class="nosotros-quote">
-            "Transportamos valor. No solo productos — transportamos tranquilidad, continuidad operacional y confianza para nuestros mandantes."
-          </blockquote>
-          <p class="section-body">Entendemos que en minería, cada hora de detención tiene un costo real. Para eso existimos: para ser el partner que resuelve cuando el tiempo apremia.</p>
-          <div style="margin-top:40px;display:flex;gap:16px;flex-wrap:wrap;">
-            <a href="#contacto" class="btn-primary-vx" style="font-size:13px;padding:14px 28px;">
-              <i class="fas fa-envelope"></i> Contáctanos
-            </a>
-            <a href="#servicios" class="btn-outline-vx" style="font-size:13px;padding:12px 28px;border-color:rgba(27,96,176,0.35);color:var(--valtrax-blue);">
-              Nuestros Servicios <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- Camión 3D animado -->
-        <div class="nosotros-truck-scene">
-          <div class="truck-wrap" id="truckWrap">
-            <img src="assets/images/truck-mining.png" alt="Camión minero VALTRAX" class="truck-main-img" id="truckMainImg" draggable="false">
-            <div class="wheel-clip" id="wheelFront">
-              <img src="assets/images/truck-mining.png" alt="" class="truck-wheel-img" id="wheelImgFront" draggable="false">
-            </div>
-            <div class="wheel-clip" id="wheelRear">
-              <img src="assets/images/truck-mining.png" alt="" class="truck-wheel-img" id="wheelImgRear" draggable="false">
+    <div class="nosotros-sticky">
+      <div class="container-fluid">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6" data-aos="fade-right" data-aos-duration="800">
+            <div class="section-label">Quiénes Somos</div>
+            <h2 class="section-title">Nacimos desde la experiencia directa en el rubro minero.</h2>
+            <p class="section-body">VALTRAX SpA es una empresa chilena especializada en la provisión urgente de insumos, materiales y equipamiento para la industria minera. Contamos con personal altamente capacitado en compras industriales, logística de respuesta rápida y conocimiento del mercado de proveedores.</p>
+            <blockquote class="nosotros-quote">
+              "Transportamos valor. No solo productos — transportamos tranquilidad, continuidad operacional y confianza para nuestros mandantes."
+            </blockquote>
+            <p class="section-body">Entendemos que en minería, cada hora de detención tiene un costo real. Para eso existimos: para ser el partner que resuelve cuando el tiempo apremia.</p>
+            <div style="margin-top:40px;display:flex;gap:16px;flex-wrap:wrap;">
+              <a href="#contacto" class="btn-primary-vx" style="font-size:13px;padding:14px 28px;">
+                <i class="fas fa-envelope"></i> Contáctanos
+              </a>
+              <a href="#servicios" class="btn-outline-vx" style="font-size:13px;padding:12px 28px;border-color:rgba(27,96,176,0.35);color:var(--valtrax-blue);">
+                Nuestros Servicios <i class="fas fa-arrow-right"></i>
+              </a>
             </div>
           </div>
         </div>
-
+      </div>
+      <!-- Truck scroll animation -->
+      <div class="truck-scene">
+        <div class="truck-wrap" id="truckWrap">
+          <img src="assets/images/truck-mining.png" class="truck-img" alt="Camión minero VALTRAX" draggable="false" />
+          <div class="truck-wheel truck-wheel-front" id="wheelFront"></div>
+          <div class="truck-wheel truck-wheel-rear"  id="wheelRear"></div>
+        </div>
       </div>
     </div>
   </section>
@@ -1267,6 +1228,90 @@ $('.odometer').each(function() {
 
 </script>
 
+<script>
+// ─── TRUCK SCROLL ANIMATION ───
+(function() {
+  var section   = document.getElementById('nosotros');
+  var truckWrap = document.getElementById('truckWrap');
+  var wFront    = document.getElementById('wheelFront');
+  var wRear     = document.getElementById('wheelRear');
+  if (!section || !truckWrap) return;
+
+  function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+  function lerp(a, b, t)   { return a + (b - a) * t; }
+
+  var currentX   = 105;
+  var targetX    = 105;
+  var wheelDeg   = 0;
+  var lastX      = 105;
+  var rafPending = false;
+
+  // truck 68vw wide, front wheel ~21% => radius ~7.1vw
+  // circumference ~ 44.6vw => 360/44.6 = 8.1 deg/vw
+  var DEG_PER_VW = 8.1;
+
+  function calcTarget() {
+    var rect    = section.getBoundingClientRect();
+    var sectH   = section.offsetHeight;
+    var vpH     = window.innerHeight;
+    var scrolled = -rect.top;
+    var range   = Math.max(1, sectH - vpH);
+    var p       = Math.max(0, Math.min(1, scrolled / range));
+
+    if (p <= 0.42) {
+      // Drive in from right to parked (right side)
+      var eased = easeOutCubic(p / 0.42);
+      targetX = 105 - eased * 70;   // 105vw → 35vw
+    } else {
+      // Continue left covering text
+      var t2    = (p - 0.42) / 0.58;
+      var eased2 = t2 * t2;
+      targetX = 35 - eased2 * 58;  // 35vw → -23vw
+    }
+  }
+
+  function applyTransforms() {
+    truckWrap.style.transform = 'translateX(' + currentX.toFixed(3) + 'vw)';
+    var wt = 'translate(-50%,-50%) rotate(' + wheelDeg.toFixed(2) + 'deg)';
+    if (wFront) wFront.style.transform = wt;
+    if (wRear)  wRear.style.transform  = wt;
+  }
+
+  function tick() {
+    rafPending = false;
+    calcTarget();
+
+    currentX  = lerp(currentX, targetX, 0.10);
+    var delta = lastX - currentX; // positive = moved left = wheels forward
+    wheelDeg += delta * DEG_PER_VW;
+    lastX = currentX;
+
+    applyTransforms();
+
+    if (Math.abs(currentX - targetX) > 0.03) {
+      rafPending = true;
+      requestAnimationFrame(tick);
+    }
+  }
+
+  function onScroll() {
+    if (!rafPending) {
+      rafPending = true;
+      requestAnimationFrame(tick);
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', function() { calcTarget(); applyTransforms(); }, { passive: true });
+
+  // Set initial position without lerp
+  calcTarget();
+  currentX = targetX;
+  lastX    = targetX;
+  applyTransforms();
+})();
+</script>
+
 <!-- Preloader: hide after logo animation completes (does not depend on window.load) -->
 <script>
 (function(){
@@ -1282,117 +1327,7 @@ $('.odometer').each(function() {
   }
   setTimeout(hide, HOLD_MS);
 })();
-
-// ─── TRUCK SCROLL ANIMATION ───────────────────────────────────────────────
-(function() {
-  var section   = document.getElementById('nosotros');
-  var truckWrap = document.getElementById('truckWrap');
-  var mainImg   = document.getElementById('truckMainImg');
-  var wFront    = document.getElementById('wheelFront');
-  var wRear     = document.getElementById('wheelRear');
-  var wiFront   = document.getElementById('wheelImgFront');
-  var wiRear    = document.getElementById('wheelImgRear');
-  if (!truckWrap || !mainImg) return;
-
-  // ── Wheel geometry as fraction of image (side-view, truck faces LEFT)
-  // Front wheel (under cab, left side of image)
-  var FX = 0.225, FY = 0.725;
-  // Rear wheel (right side of image)
-  var RX = 0.635, RY = 0.725;
-  // Wheel radius as fraction of image width
-  var WR = 0.138;
-
-  var rotation  = 0;
-  var lastX     = null;
-  var imgW      = 0, imgH = 0;
-
-  function positionWheels() {
-    imgW = mainImg.offsetWidth;
-    imgH = mainImg.offsetHeight;
-    if (!imgW) return;
-
-    var r = WR * imgW;
-    var d = r * 2;
-
-    // Front wheel clip
-    var fx = FX * imgW - r, fy = FY * imgH - r;
-    wFront.style.cssText = 'position:absolute;border-radius:50%;overflow:hidden;pointer-events:none;'
-      + 'width:' + d + 'px;height:' + d + 'px;left:' + fx + 'px;top:' + fy + 'px;';
-    wiFront.style.cssText = 'position:absolute;pointer-events:none;mix-blend-mode:multiply;'
-      + 'width:' + imgW + 'px;height:' + imgH + 'px;left:' + (-fx) + 'px;top:' + (-fy) + 'px;'
-      + 'transform-origin:' + (FX * imgW) + 'px ' + (FY * imgH) + 'px;';
-
-    // Rear wheel clip
-    var rx = RX * imgW - r, ry = RY * imgH - r;
-    wRear.style.cssText = 'position:absolute;border-radius:50%;overflow:hidden;pointer-events:none;'
-      + 'width:' + d + 'px;height:' + d + 'px;left:' + rx + 'px;top:' + ry + 'px;';
-    wiRear.style.cssText = 'position:absolute;pointer-events:none;mix-blend-mode:multiply;'
-      + 'width:' + imgW + 'px;height:' + imgH + 'px;left:' + (-rx) + 'px;top:' + (-ry) + 'px;'
-      + 'transform-origin:' + (RX * imgW) + 'px ' + (RY * imgH) + 'px;';
-  }
-
-  function easeInOut(t) {
-    return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2;
-  }
-
-  function update() {
-    if (!section) return;
-    var sRect  = section.getBoundingClientRect();
-    var sH     = section.offsetHeight;
-    var vH     = window.innerHeight;
-    var vW     = window.innerWidth;
-
-    // progress 0→1 as user scrolls through the section
-    var scrolled = -sRect.top;
-    var maxScroll = sH - vH;
-    var progress = Math.max(0, Math.min(1, scrolled / maxScroll));
-
-    // Truck X: starts 110vw right → at progress 0.45 arrives at final resting position ~10vw right of center
-    var startX = vW * 1.15;
-    var endX   = vW * -0.25;
-    var truckX = startX + (endX - startX) * easeInOut(progress);
-
-    truckWrap.style.transform = 'translateX(' + truckX + 'px) translateY(-54%)';
-
-    // Wheel rotation: proportional to distance moved
-    if (imgW > 0) {
-      var circumference = Math.PI * (WR * 2 * imgW);
-      if (lastX !== null) {
-        var dx = truckX - lastX;
-        // truck moves left = negative dx = wheels rotate forward (negative angle for forward roll)
-        rotation += (dx / circumference) * 360;
-      }
-      lastX = truckX;
-      var rot = 'rotate(' + rotation + 'deg)';
-      wiFront.style.transform = rot;
-      wiRear.style.transform  = rot;
-    }
-  }
-
-  // Init wheel positions after image loads
-  if (mainImg.complete && mainImg.naturalWidth) {
-    positionWheels();
-  } else {
-    mainImg.addEventListener('load', positionWheels);
-  }
-
-  window.addEventListener('resize', function() {
-    positionWheels();
-    lastX = null;
-    update();
-  });
-
-  var ticking = false;
-  window.addEventListener('scroll', function() {
-    if (!ticking) {
-      requestAnimationFrame(function() { update(); ticking = false; });
-      ticking = true;
-    }
-  }, { passive: true });
-
-  // Run once on load to set initial position
-  window.addEventListener('load', function() { positionWheels(); update(); });
-  update();
-})();
-
 </script>
+
+</body>
+</html>
