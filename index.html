@@ -200,18 +200,22 @@
 
   /* ─── NOSOTROS ─── */
   /* ─── NOSOTROS ─── */
-  .nosotros-section { position: relative; background: #fff; min-height: 60vh; }
-  .nosotros-sticky { position: sticky; top: 80px; height: calc(100vh - 80px); overflow: hidden; display: flex; align-items: center; }
+  .nosotros-section { position: relative; background: #fff; }
+  .nosotros-sticky { position: sticky; top: 80px; height: 75vh; overflow: hidden; display: flex; align-items: flex-start; padding-top: 32px; }
+  .nosotros-title { font-family: 'Outfit', sans-serif; font-size: clamp(46px, 5.5vw, 80px); font-weight: 800; color: var(--valtrax-dark); line-height: 1.0; margin-bottom: 16px; }
+  .nosotros-title .shine-word { background: linear-gradient(100deg, #4FA3E8 0%, #4FA3E8 35%, #ffffff 50%, #4FA3E8 65%, #4FA3E8 100%); background-size: 250% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: procShine 6s linear infinite; }
+  .nosotros-kicker { font-size: 14px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--valtrax-blue); margin-bottom: 28px; display: flex; align-items: center; gap: 10px; }
+  .nosotros-kicker::before { content: ''; width: 32px; height: 2px; background: var(--valtrax-blue); flex-shrink: 0; }
   .nosotros-sticky > .container-fluid { padding: 0 80px; position: relative; z-index: 2; width: 100%; }
   /* Truck scene */
   .truck-scene { position: absolute; inset: 0; pointer-events: none; z-index: 3; overflow: hidden; }
-  .truck-wrap { position: absolute; bottom: 0; left: 0; height: 90%; width: auto; transform: translateX(105vw); will-change: transform; }
+  .truck-wrap { position: absolute; bottom: 0; left: 0; height: 98%; width: auto; transform: translateX(105vw); will-change: transform; }
   .truck-img { height: 100%; width: auto; display: block; user-select: none; pointer-events: none; }
   .section-label { font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--valtrax-blue); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
   .section-label::before { content: ''; width: 32px; height: 2px; background: var(--valtrax-blue); flex-shrink: 0; }
   .section-title { font-family: 'Outfit', sans-serif; font-size: clamp(32px, 3.5vw, 52px); font-weight: 800; color: var(--valtrax-dark); line-height: 1.1; margin-bottom: 24px; }
   .section-body { font-size: 17px; color: var(--text-color); line-height: 1.7; }
-  .nosotros-quote { border-left: 3px solid var(--valtrax-blue); padding-left: 24px; margin: 32px 0; font-size: 18px; font-weight: 500; color: var(--valtrax-dark); font-style: italic; line-height: 1.55; }
+  .nosotros-quote { border-left: 3px solid var(--valtrax-blue); padding-left: 24px; margin: 18px 0 0; font-size: 17px; font-weight: 500; color: var(--valtrax-dark); font-style: italic; line-height: 1.5; }
   /* (nosotros-img-grid removed) */
   .stat-strip { background: var(--valtrax-dark); padding: 48px 80px; display: flex; justify-content: space-around; align-items: center; gap: 32px; flex-wrap: wrap; }
   /* stat-strip cinematic */
@@ -616,22 +620,18 @@
     <div class="nosotros-sticky">
       <div class="container-fluid">
         <div class="row align-items-center g-5">
-          <div class="col-lg-6" data-aos="fade-right" data-aos-duration="800">
-            <div class="section-label">Quiénes Somos</div>
-            <h2 class="section-title">Nacimos desde la experiencia directa en el rubro minero.</h2>
-            <p class="section-body">VALTRAX SpA es una empresa chilena especializada en la provisión urgente de insumos, materiales y equipamiento para la industria minera. Contamos con personal altamente capacitado en compras industriales, logística de respuesta rápida y conocimiento del mercado de proveedores.</p>
+          <div class="col-lg-5" data-aos="fade-right" data-aos-duration="800">
+            <div class="nosotros-kicker">Quiénes Somos</div>
+            <h2 class="nosotros-title">
+              Nacimos desde la<br>
+              <span class="shine-word">EXPERIENCIA</span><br>
+              directa en el<br>
+              <span class="shine-word">RUBRO MINERO.</span>
+            </h2>
+            <p class="section-body" style="font-size:19px;line-height:1.6;margin-top:18px;">VALTRAX SpA es una empresa chilena especializada en la provisión urgente de insumos, materiales y equipamiento para la industria minera. Contamos con personal altamente capacitado en compras industriales, logística de respuesta rápida y conocimiento del mercado de proveedores.</p>
             <blockquote class="nosotros-quote">
-              "Transportamos valor. No solo productos — transportamos tranquilidad, continuidad operacional y confianza para nuestros mandantes."
+              &ldquo;Transportamos valor. No solo productos &mdash; transportamos tranquilidad, continuidad operacional y confianza para nuestros mandantes.&rdquo;
             </blockquote>
-            <p class="section-body">Entendemos que en minería, cada hora de detención tiene un costo real. Para eso existimos: para ser el partner que resuelve cuando el tiempo apremia.</p>
-            <div style="margin-top:40px;display:flex;gap:16px;flex-wrap:wrap;">
-              <a href="#contacto" class="btn-primary-vx" style="font-size:13px;padding:14px 28px;">
-                <i class="fas fa-envelope"></i> Contáctanos
-              </a>
-              <a href="#servicios" class="btn-outline-vx" style="font-size:13px;padding:12px 28px;border-color:rgba(27,96,176,0.35);color:var(--valtrax-blue);">
-                Nuestros Servicios <i class="fas fa-arrow-right"></i>
-              </a>
-            </div>
           </div>
         </div>
       </div>
@@ -1227,62 +1227,42 @@ $('.odometer').each(function() {
 (function() {
   var section   = document.getElementById('nosotros');
   var truckWrap = document.getElementById('truckWrap');
-  var wFront    = document.getElementById('wheelFront');
-  var wRear     = document.getElementById('wheelRear');
   if (!section || !truckWrap) return;
 
-  function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
-  function lerp(a, b, t)   { return a + (b - a) * t; }
+  function lerp(a, b, t) { return a + (b - a) * t; }
 
-  var currentX   = 105;
-  var targetX    = 105;
-  var wheelDeg   = 0;
-  var lastX      = 105;
+  var currentX   = 110;
+  var targetX    = 110;
   var rafPending = false;
 
-  // truck 68vw wide, front wheel ~21% => radius ~7.1vw
-  // circumference ~ 44.6vw => 360/44.6 = 8.1 deg/vw
-  var DEG_PER_VW = 8.1;
-
+  // Linear mapping: no easing on calcTarget, purely proportional to scroll.
+  // p=0 → truck barely enters from right (100vw)
+  // p=0.5 → truck at center-right (~35vw), half way
+  // p=1 → truck just exited left (-20vw, tail still visible)
   function calcTarget() {
-    var rect    = section.getBoundingClientRect();
-    var sectH   = section.offsetHeight;
-    var vpH     = window.innerHeight;
-    var scrolled = -rect.top;
-    var range   = Math.max(1, sectH - vpH);
-    var p       = Math.max(0, Math.min(1, scrolled / range));
+    var rect   = section.getBoundingClientRect();
+    var sectH  = section.offsetHeight;
+    var vpH    = window.innerHeight;
 
-    if (p <= 0.42) {
-      // Drive in from right to parked (right side)
-      var eased = easeOutCubic(p / 0.42);
-      targetX = 105 - eased * 70;   // 105vw → 35vw
-    } else {
-      // Continue left covering text
-      var t2    = (p - 0.42) / 0.58;
-      var eased2 = t2 * t2;
-      targetX = 35 - eased2 * 58;  // 35vw → -23vw
-    }
+    // p: 0 when section top hits viewport bottom (just starts appearing)
+    //    1 when section bottom hits viewport top (just leaving)
+    var p = 1 - (rect.bottom / (sectH + vpH));
+    p = Math.max(0, Math.min(1, p));
+
+    // Perfectly linear: 100vw → -20vw  (total travel = 120vw)
+    targetX = 100 - p * 120;
   }
 
   function applyTransforms() {
     truckWrap.style.transform = 'translateX(' + currentX.toFixed(3) + 'vw)';
-    var wt = 'translate(-50%,-50%) rotate(' + wheelDeg.toFixed(2) + 'deg)';
-    if (wFront) wFront.style.transform = wt;
-    if (wRear)  wRear.style.transform  = wt;
   }
 
   function tick() {
     rafPending = false;
     calcTarget();
-
-    currentX  = lerp(currentX, targetX, 0.10);
-    var delta = lastX - currentX; // positive = moved left = wheels forward
-    wheelDeg += delta * DEG_PER_VW;
-    lastX = currentX;
-
+    currentX = lerp(currentX, targetX, 0.12);
     applyTransforms();
-
-    if (Math.abs(currentX - targetX) > 0.03) {
+    if (Math.abs(currentX - targetX) > 0.02) {
       rafPending = true;
       requestAnimationFrame(tick);
     }
@@ -1296,12 +1276,10 @@ $('.odometer').each(function() {
   }
 
   window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', function() { calcTarget(); applyTransforms(); }, { passive: true });
+  window.addEventListener('resize', function() { calcTarget(); currentX = targetX; applyTransforms(); }, { passive: true });
 
-  // Set initial position without lerp
   calcTarget();
   currentX = targetX;
-  lastX    = targetX;
   applyTransforms();
 })();
 </script>
