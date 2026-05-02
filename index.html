@@ -260,10 +260,10 @@
   .proceso-anim-frame { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; display: block; background: transparent; }
 
   /* ─── COBERTURA ─── */
-  .cobertura-section { background: #f4f6fa; padding: 120px 0; position: relative; overflow: hidden; }
+  .cobertura-section { background: #f4f6fa; padding: 80px 0; position: relative; overflow: hidden; }
   .cobertura-section::after { content: ''; position: absolute; width: 800px; height: 500px; border-radius: 50%; background: radial-gradient(ellipse, rgba(79,163,232,0.10) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%,-50%); pointer-events: none; }
   .cobertura-section .container-fluid { padding: 0 80px; position: relative; z-index: 2; }
-  .cobertura-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-top: 64px; }
+  .cobertura-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-top: 48px; }
   .cobertura-map { background: rgba(255,255,255,0.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-radius: 20px; border: 1px solid rgba(79,163,232,0.18); padding: 40px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 8px 40px rgba(27,96,176,0.08); position: relative; }
   .cobertura-map::before { content: ''; position: absolute; inset: 0; border-radius: 20px; padding: 1px; background: linear-gradient(160deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.3) 40%, rgba(79,163,232,0.2) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
   .cobertura-map-row { display: flex; align-items: center; gap: 20px; padding: 14px 18px; border-radius: 10px; background: rgba(255,255,255,0.6); border: 1px solid rgba(79,163,232,0.12); transition: background 0.2s, border-color 0.2s; }
@@ -275,15 +275,14 @@
   .cobertura-city { font-weight: 700; color: var(--valtrax-dark); font-size: 16px; }
   .cobertura-role { font-size: 11px; color: rgba(15,32,60,0.45); letter-spacing: 0.08em; text-transform: uppercase; }
   .cobertura-detail { font-size: 13px; color: rgba(15,32,60,0.5); margin-left: auto; }
-  .cobertura-info { }
-  .cobertura-info .section-label { color: var(--valtrax-blue); }
-  .cobertura-info .section-label::before { background: var(--valtrax-blue); }
-  .cobertura-info .section-title { color: var(--valtrax-dark); }
-  .cobertura-info .section-body { color: rgba(15,32,60,0.65); }
-  .cobertura-feature { display: flex; align-items: flex-start; gap: 16px; margin-top: 28px; }
+  .cobertura-kicker { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(15,32,60,0.6); background: rgba(27,96,176,0.08); border: 1px solid rgba(27,96,176,0.15); padding: 6px 14px; border-radius: 100px; margin-bottom: 20px; }
+  .cobertura-heading { font-family: 'Outfit', sans-serif; font-size: clamp(36px, 4.5vw, 68px); font-weight: 800; color: var(--valtrax-dark); line-height: 0.95; letter-spacing: -0.03em; margin-bottom: 20px; }
+  .cobertura-heading em { font-style: normal; background: linear-gradient(100deg, #1B60B0 0%, #1B60B0 40%, #4FA3E8 55%, #1B60B0 70%, #1B60B0 100%); background-size: 250% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: procShine 6s linear infinite; }
+  .cobertura-info .section-body { color: rgba(15,32,60,0.72); font-size: 16px; line-height: 1.65; }
+  .cobertura-feature { display: flex; align-items: flex-start; gap: 16px; margin-top: 24px; }
   .cobertura-feature-icon { width: 44px; height: 44px; border-radius: 10px; background: rgba(27,96,176,0.08); border: 1px solid rgba(27,96,176,0.18); flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
   .cobertura-feature-text h4 { font-size: 16px; font-weight: 700; color: var(--valtrax-dark); margin-bottom: 4px; }
-  .cobertura-feature-text p { font-size: 14px; color: rgba(15,32,60,0.6); line-height: 1.55; }
+  .cobertura-feature-text p { font-size: 14px; color: rgba(15,32,60,0.65); line-height: 1.55; }
 
   /* ─── LIQUID GLASS (utilitarios) ─── */
   .lg-card {
@@ -774,9 +773,9 @@
     <div class="container-fluid">
       <div class="cobertura-grid">
         <div class="cobertura-info" data-aos="fade-right" data-aos-duration="800">
-          <div class="section-label">Cobertura Geográfica</div>
-          <h2 class="section-title">Donde la minería opera, VALTRAX llega.</h2>
-          <p class="section-body">Flota propia y red de transporte asociada para toda la Región de Antofagasta. Despacho directo a faenas, campamentos, oficinas y bodegas. Expansión activa hacia el Norte Grande y Región Metropolitana.</p>
+          <div class="cobertura-kicker">Cobertura Geográfica</div>
+          <h2 class="cobertura-heading">Donde la minería opera,<br><em>VALTRAX llega.</em></h2>
+          <p class="section-body" style="color:rgba(15,32,60,0.72);font-size:16px;line-height:1.65;">Flota propia y red de transporte asociada para toda la Región de Antofagasta. Despacho directo a faenas, campamentos, oficinas y bodegas. Expansión activa hacia el Norte Grande y Región Metropolitana.</p>
 
           <div class="cobertura-feature" style="margin-top:36px;">
             <div class="cobertura-feature-icon">
@@ -848,13 +847,13 @@
             </div>
             <div class="cobertura-detail">Despacho a faena</div>
           </div>
-          <div class="cobertura-map-row" style="border-color:rgba(79,163,232,0.1);background:rgba(79,163,232,0.05);">
+          <div class="cobertura-map-row" style="border-color:rgba(79,163,232,0.15);background:rgba(79,163,232,0.06);">
             <div style="width:12px;height:12px;border-radius:50%;background:rgba(79,163,232,0.4);border:2px dashed #4FA3E8;flex-shrink:0;"></div>
             <div>
-              <div class="cobertura-city" style="color:rgba(255,255,255,0.6);">Norte Grande + RM</div>
+              <div class="cobertura-city">Norte Grande + RM</div>
               <div class="cobertura-role">Expansión en curso</div>
             </div>
-            <div class="cobertura-detail" style="color:#4FA3E8;font-size:11px;font-weight:700;">Próximamente</div>
+            <div class="cobertura-detail" style="color:#1B60B0;font-size:11px;font-weight:700;">Próximamente</div>
           </div>
         </div>
       </div>
