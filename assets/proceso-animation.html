@@ -367,10 +367,9 @@ function Stage({
     if (!stageRef.current) return;
     const el = stageRef.current;
     const measure = () => {
-      const barH = 44; // playback bar height
       const s = Math.min(
         el.clientWidth / width,
-        (el.clientHeight - barH) / height
+        el.clientHeight / height
       );
       setScale(Math.max(0.05, s));
     };
@@ -475,17 +474,7 @@ function Stage({
         </div>
       </div>
 
-      {/* Playback bar — stacked below canvas, never overlapping */}
-      <PlaybackBar
-        time={displayTime}
-        actualTime={time}
-        duration={duration}
-        playing={playing}
-        onPlayPause={() => setPlaying(p => !p)}
-        onReset={() => { setTime(0); }}
-        onSeek={(t) => setTime(t)}
-        onHover={(t) => setHoverTime(t)}
-      />
+      {/* PlaybackBar hidden — autoplay loop only */
     </div>
   );
 }
@@ -951,7 +940,7 @@ function PriceCard({ x, y, storeName, price, isBest, delay, spriteDur }) {
             <text x={0} y={-H/2-2} textAnchor="middle"
               fontFamily={FONT_TITLE} fontSize={11} fontWeight={700}
               fill="#1a1000">
-              ✦ MEJOR PRECIO
+              MEJOR PRECIO
             </text>
           </g>
         )}
@@ -967,14 +956,16 @@ function BigCheck({ spriteDur }) {
   const exitT = animate({ from: 1, to: 0, start: spriteDur - 0.6, end: spriteDur - 0.15, ease: Easing.easeInCubic })(localTime);
   if (localTime < 2.1) return null;
 
-  const CX = 640, CY = 480;
-  const R = 34;
+  // Top-right corner of best card (Proveedor B centered at x=640, y=340, W=165, H=110)
+  const CX = 640 + 165/2 - 2;
+  const CY = 340 - 110/2 - 2;
+  const R = 16;
   return (
     <g transform={`translate(${CX}, ${CY})`} style={{ opacity: clamp(t*2,0,1) * exitT }}>
       <g transform={`scale(${sc})`}>
         <circle cx={0} cy={0} r={R} fill={C.green} />
-        <polyline points="-16,0 -5,12 20,-14"
-          stroke="white" strokeWidth={5} fill="none"
+        <polyline points="-7,0 -2,5 9,-6"
+          stroke="white" strokeWidth={2.5} fill="none"
           strokeLinecap="round" strokeLinejoin="round" />
       </g>
     </g>
@@ -1001,12 +992,12 @@ function Scene2() {
       ))}
       <BigCheck spriteDur={duration} />
 
-      {/* Speed badge */}
+      {/* Speed badge — shown above COTIZAMOS label */}
       {localTime > 2.6 && (
         <g style={{ opacity: clamp((localTime - 2.6)/0.4, 0, 1) * fadeOut(localTime, duration, 0.5) }}>
-          <rect x={530} y={502} width={220} height={30} rx={15}
+          <rect x={530} y={424} width={220} height={30} rx={15}
             fill={`${C.accent}22`} stroke={C.accent} strokeWidth={1} />
-          <text x={640} y={522} textAnchor="middle"
+          <text x={640} y={444} textAnchor="middle"
             fontFamily={FONT_BODY} fontSize={12} fontWeight={700}
             fill={C.accent}>
             ⚡ Respuesta en menos de 2 horas

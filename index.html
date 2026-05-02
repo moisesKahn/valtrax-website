@@ -181,6 +181,7 @@
   .hero-eyebrow { display: inline-flex; align-items: center; gap: 10px; color: #5B9FD8; font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 24px; }
   .hero-eyebrow::before { content: ''; width: 32px; height: 2px; background: #5B9FD8; flex-shrink: 0; }
   .hero-headline { font-family: 'Outfit', sans-serif; font-size: clamp(64px, 11vw, 155px); font-weight: 800; color: #fff; line-height: 0.88; letter-spacing: -0.03em; margin-bottom: 28px; }
+  @keyframes procShine { 0% { background-position: 200% center; } 100% { background-position: -200% center; } }
   .hero-headline .hero-shine { display: block; background: linear-gradient(100deg, #4FA3E8 0%, #4FA3E8 35%, #ffffff 50%, #4FA3E8 65%, #4FA3E8 100%); background-size: 250% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: procShine 6s linear infinite; }
   .hero-sub { font-size: 17px; color: rgba(255,255,255,0.72); line-height: 1.65; max-width: 520px; margin-bottom: 40px; }
   .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; margin-bottom: 56px; }
@@ -249,8 +250,8 @@
   .svc-col:hover .svc-tag { color: rgba(255,255,255,0.9); background: rgba(91,159,216,0.25); }
 
   /* ─── PROCESO ─── */
-  .proceso-section { position: relative; background: #060d1a; line-height: 0; font-size: 0; }
-  .proceso-anim-wrap { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+  .proceso-section { position: relative; background: #ffffff; padding: 80px 0; }
+  .proceso-anim-wrap { position: relative; width: 82%; max-width: 1080px; margin: 0 auto; aspect-ratio: 16/9; overflow: hidden; border-radius: 16px; box-shadow: 0 8px 48px rgba(0,0,0,0.13); }
   .proceso-anim-frame { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; display: block; }
 
   /* ─── COBERTURA ─── */
@@ -756,6 +757,8 @@
     </div>
   </section>
 
+
+  <div style="height:8px; background:#ffffff;"></div>
 
   <!-- ═══════════════════════════════════════
        PROCESO
