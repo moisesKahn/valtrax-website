@@ -486,7 +486,7 @@
           <nav class="main-menu navbar-expand-md navbar-light clearfix">
             <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
               <ul class="navigation clearfix">
-                <li class="current"><a href="#inicio">Inicio</a></li>
+                <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#nosotros">Nosotros</a></li>
                 <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#proceso">Proceso</a></li>
@@ -497,7 +497,7 @@
           </nav>
         </div>
         <div class="menu-right-content" style="display:flex;align-items:center;gap:16px;">
-          <a href="https://wa.me/56900000000" target="_blank" class="header-cta-btn">
+          <a href="https://wa.me/56968666419" target="_blank" class="header-cta-btn">
             <i class="fab fa-whatsapp"></i> Cotizar
           </a>
           <div class="mobile-nav-toggler"><i class="icon-22"></i></div>
@@ -518,7 +518,7 @@
             <nav class="main-menu clearfix"><!--JS fills this--></nav>
           </div>
           <div class="menu-right-content">
-            <a href="https://wa.me/56900000000" target="_blank" class="header-cta-btn">
+            <a href="https://wa.me/56968666419" target="_blank" class="header-cta-btn">
               <i class="fab fa-whatsapp"></i> Cotizar
             </a>
             <div class="mobile-nav-toggler"><i class="icon-22"></i></div>
@@ -545,7 +545,7 @@
         <h4>Contacto</h4>
         <ul>
           <li>Av Antonio Rendic 5535, Antofagasta</li>
-          <li><a href="tel:+56900000000">+56 9 XXXX XXXX</a></li>
+          <li><a href="tel:+56968666419">+56 9 6866 6419</a></li>
           <li><a href="mailto:contacto@valtrax.cl">contacto@valtrax.cl</a></li>
         </ul>
       </div>
@@ -939,7 +939,7 @@
         <h2>Nosotros la <em>resolvemos.</em></h2>
         <p>Envíanos tu requerimiento ahora. Cotizamos en menos de 2 horas hábiles y entregamos en 24 horas.</p>
         <div class="cta-actions">
-          <a href="https://wa.me/56900000000" target="_blank" class="btn-primary-vx" style="background:#25D366;box-shadow:0 4px 20px rgba(37,211,102,0.35);">
+          <a href="https://wa.me/56968666419" target="_blank" class="btn-primary-vx" style="background:#25D366;box-shadow:0 4px 20px rgba(37,211,102,0.35);">
             <i class="fab fa-whatsapp"></i> WhatsApp Directo
           </a>
           <a href="mailto:contacto@valtrax.cl" class="btn-outline-vx">
@@ -967,7 +967,7 @@
       <div class="cta-contact-item">
         <i class="fab fa-whatsapp"></i>
         <div>
-          <strong>+56 9 XXXX XXXX</strong>
+          <strong>+56 9 6866 6419</strong>
           <span>WhatsApp para urgencias</span>
         </div>
       </div>
@@ -998,7 +998,7 @@
         <div class="footer-social">
           <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
           <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="https://wa.me/56900000000" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://wa.me/56968666419" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         </div>
       </div>
 
@@ -1037,7 +1037,7 @@
         </div>
         <div class="footer-contact-item">
           <i class="fab fa-whatsapp"></i>
-          <span>+56 9 XXXX XXXX</span>
+          <span>+56 9 6866 6419</span>
         </div>
         <div class="footer-horario">
           <p><strong>Lunes a Viernes:</strong> 08:00 – 18:00 hrs.<br><strong>Sábado:</strong> 09:00 – 13:00 hrs.</p>
@@ -1057,7 +1057,7 @@
   </a>
 
   <!-- WhatsApp float -->
-  <a href="https://wa.me/56900000000" target="_blank" class="wa-float" title="Chatear por WhatsApp">
+  <a href="https://wa.me/56968666419" target="_blank" class="wa-float" title="Chatear por WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
 
@@ -1102,16 +1102,46 @@ $('#scrollTopBtn').on('click', function(e) {
   $('html, body').animate({ scrollTop: 0 }, 600, 'swing');
 });
 
-// ─── SMOOTH NAV SCROLL ───
-$('a[href^="#"]').on('click', function(e) {
-  var target = $(this).attr('href');
-  if (target === '#' || target.length < 2) return;
-  var $target = $(target);
-  if ($target.length) {
+// ─── SMOOTH NAV SCROLL (nativo, sin jQuery animate para evitar saltos) ───
+document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    var href = this.getAttribute('href');
+    if (!href || href === '#' || href.length < 2) return;
+    var target = document.querySelector(href);
+    if (!target) return;
     e.preventDefault();
-    $('html, body').animate({ scrollTop: $target.offset().top - 80 }, 700, 'swing');
-  }
+    var top = target.getBoundingClientRect().top + window.pageYOffset - 80;
+    window.scrollTo({ top: top, behavior: 'smooth' });
+  });
 });
+
+// ─── SCROLL SPY: resalta el ítem de nav según la sección visible ───
+(function() {
+  var sections = ['inicio','nosotros','servicios','proceso','cobertura','contacto'];
+  var navLinks = {};
+  sections.forEach(function(id) {
+    var a = document.querySelector('.main-menu a[href="#' + id + '"]');
+    if (a) navLinks[id] = a.parentElement; // el <li>
+  });
+
+  function updateActive() {
+    var scrollY = window.pageYOffset;
+    var active  = sections[0];
+    sections.forEach(function(id) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      if (el.getBoundingClientRect().top + window.pageYOffset - 160 <= scrollY) {
+        active = id;
+      }
+    });
+    Object.keys(navLinks).forEach(function(id) {
+      navLinks[id].classList.toggle('current', id === active);
+    });
+  }
+
+  window.addEventListener('scroll', updateActive, { passive: true });
+  updateActive();
+})();
 
 // ─── INICIO / CATEGORÍAS: VIDEO DINÁMICO + ROTACIÓN AUTOMÁTICA ───
 (function() {
