@@ -183,7 +183,8 @@
   .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.06); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.12); padding: 6px 14px; border-radius: 100px; margin-bottom: 28px; }
   .hero-headline { font-family: 'Outfit', sans-serif; font-size: clamp(64px, 11vw, 155px); font-weight: 800; color: #fff; line-height: 0.88; letter-spacing: -0.03em; margin-bottom: 28px; }
   @keyframes procShine { 0% { background-position: 200% center; } 100% { background-position: -200% center; } }
-  .hero-headline .hero-shine { display: block; background: linear-gradient(100deg, #4FA3E8 0%, #4FA3E8 35%, #ffffff 50%, #4FA3E8 65%, #4FA3E8 100%); background-size: 250% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: procShine 6s linear infinite; }
+  .hero-headline .hero-shine,
+  .svc-hero-headline .hero-shine { display: block; background: linear-gradient(100deg, #4FA3E8 0%, #4FA3E8 35%, #ffffff 50%, #4FA3E8 65%, #4FA3E8 100%); background-size: 250% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: procShine 6s linear infinite; }
   .hero-sub { font-size: 17px; color: rgba(255,255,255,0.72); line-height: 1.65; max-width: 520px; margin-bottom: 40px; }
   .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; margin-bottom: 56px; }
   .btn-primary-vx { background: var(--valtrax-blue); color: #fff; padding: 14px 32px; border-radius: 100px; font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; transition: background 0.2s, transform 0.2s, box-shadow 0.2s; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; box-shadow: 0 4px 20px rgba(27,96,176,0.35); }
@@ -226,9 +227,12 @@
   .stat-label { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.35); font-weight:500; }
   .stat-divider { width:1px; height:70px; background:rgba(255,255,255,0.06); flex-shrink:0; }
 
-  /* ─── SERVICIOS ─── */
-  .servicios-section { position: relative; padding: 120px 0 0; overflow: hidden; background: #060D16; }
-  .servicios-section .svc-header { padding: 0 80px 72px; }
+  /* ─── SERVICIOS / INICIO ─── */
+  .servicios-section { position: relative; overflow: hidden; background: #060D16; height: 100vh; min-height: 600px; display: flex; flex-direction: column; }
+  /* Hero content replacing old svc-header */
+  .svc-hero-content { position: relative; z-index: 2; padding: 100px 80px 32px; flex: 1; display: flex; flex-direction: column; justify-content: flex-end; }
+  .svc-hero-headline { font-family: 'Outfit', sans-serif; font-size: clamp(54px, 9vw, 138px); font-weight: 800; color: #fff; line-height: 0.88; letter-spacing: -0.03em; margin-bottom: 18px; }
+  .svc-hero-sub { font-size: 17px; color: rgba(255,255,255,0.65); line-height: 1.6; max-width: 520px; margin-bottom: 32px; }
   /* Fondo de videos dinámico */
   #svc-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #060D16; }
   #svc-bg .svc-bg-item { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity 1s cubic-bezier(0.23,1,0.32,1), transform 1s cubic-bezier(0.23,1,0.32,1); transform: scale(1.04); }
@@ -253,6 +257,12 @@
   /* Etiqueta rotada */
   .svc-tag { font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.09); backdrop-filter: blur(10px); padding: 8px 13px; display: inline-block; writing-mode: vertical-rl; transform: rotate(180deg); position: absolute; top: 28px; right: 0; transition: color 0.3s, background 0.3s; }
   .svc-col:hover .svc-tag { color: rgba(255,255,255,0.9); background: rgba(91,159,216,0.25); }
+  /* Estado seleccionado (auto-rotación) — igual que :hover */
+  .svc-col.svc-selected::before { height: 100%; }
+  .svc-col.svc-selected .svc-num { -webkit-text-stroke-color: rgba(255,255,255,0.45); transform: translateY(0); opacity: 1; }
+  .svc-col.svc-selected .svc-content { transform: translateY(0); }
+  .svc-col.svc-selected .svc-desc { opacity: 1; max-height: 90px; }
+  .svc-col.svc-selected .svc-tag { color: rgba(255,255,255,0.9); background: rgba(91,159,216,0.25); }
 
   /* ─── PROCESO ─── */
   .proceso-section { position: relative; background: #070e1c; height: calc(100vh - 80px); overflow: hidden; }
@@ -382,9 +392,10 @@
     .hero-content { padding: 0 32px 60px; }
     .hero-stats { gap: 24px; }
     .nosotros-section .container-fluid,
-    .servicios-section .container-fluid,
     .cobertura-section .container-fluid,
     .valores-section .container-fluid { padding: 0 32px; }
+    .svc-hero-content { padding: 80px 32px 24px; }
+    .svc-hero-headline { font-size: clamp(38px, 10vw, 72px); }
     .servicios-grid { grid-template-columns: 1fr 1fr; }
 
     .cobertura-grid { grid-template-columns: 1fr; }
@@ -544,42 +555,100 @@
 
 
   <!-- ═══════════════════════════════════════
-       HERO
+       INICIO / CATEGORÍAS
   ═══════════════════════════════════════ -->
-  <section class="valtrax-hero" id="inicio">
-    <div class="hero-video-wrap">
-      <video class="active" autoplay muted playsinline>
-        <source src="assets/videos inicio/hero1.mp4" type="video/mp4">
-      </video>
-      <video muted playsinline>
-        <source src="assets/videos inicio/hero2.mp4" type="video/mp4">
-      </video>
-      <video muted playsinline>
-        <source src="assets/videos inicio/hero3.mp4" type="video/mp4">
-      </video>
-      <video muted playsinline>
-        <source src="assets/videos inicio/7084d926-d309-4235-b3b1-abec788fb354-2026-05-01.mp4" type="video/mp4">
-      </video>
+  <section class="servicios-section" id="inicio">
+    <!-- Fondos de video dinámicos -->
+    <div id="svc-bg">
+      <div class="svc-bg-item svc-active" data-svc="1">
+        <video autoplay muted loop playsinline><source src="assets/videos/ferreteria.mov" type="video/mp4"></video>
+      </div>
+      <div class="svc-bg-item" data-svc="2">
+        <video muted loop playsinline><source src="assets/videos/electrodomesticos.mp4" type="video/mp4"></video>
+      </div>
+      <div class="svc-bg-item" data-svc="3">
+        <video muted loop playsinline><source src="assets/videos/muebleria.mp4" type="video/mp4"></video>
+      </div>
+      <div class="svc-bg-item" data-svc="4">
+        <video muted loop playsinline><source src="assets/videos/equipamiento-industrial.mp4" type="video/mp4"></video>
+      </div>
+      <div class="svc-bg-item" data-svc="5">
+        <video muted loop playsinline><source src="assets/videos/tecnologia.mov" type="video/mp4"></video>
+      </div>
+      <div class="svc-bg-item" data-svc="6">
+        <video muted loop playsinline><source src="assets/videos/insumos-de-faena.mov" type="video/mp4"></video>
+      </div>
     </div>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <div class="hero-eyebrow">Minería del Norte de Chile</div>
-      <h1 class="hero-headline">Cuando la urgencia<br><span class="hero-shine">no espera.</span></h1>
-      <p class="hero-sub">Tu partner estratégico en la provisión de insumos industriales, ferretería y equipamiento. Respondemos donde y cuando la operación minera lo exige.</p>
+
+    <!-- Hero content -->
+    <div class="svc-hero-content">
+      <h1 class="svc-hero-headline">Todo lo que tu<br><span class="hero-shine">operación necesita.</span></h1>
+      <p class="svc-hero-sub">Si existe en el mercado, lo conseguimos. Despachamos directo a tu faena, campamento u oficina.</p>
     </div>
-    <div class="hero-actions">
-      <a href="#contacto" class="btn-primary-vx">
-        <i class="fas fa-bolt"></i> Solicitar Cotización
-      </a>
-      <a href="#servicios" class="btn-outline-vx">
-        Ver Servicios <i class="fas fa-arrow-right"></i>
-      </a>
-    </div>
-    <div class="hero-video-dots">
-      <div class="hvd active" data-index="0"></div>
-      <div class="hvd" data-index="1"></div>
-      <div class="hvd" data-index="2"></div>
-      <div class="hvd" data-index="3"></div>
+
+    <!-- Grid de columnas -->
+    <div class="svc-grid">
+
+      <!-- 01 Ferretería -->
+      <div class="svc-col" data-svc="1">
+        <span class="svc-tag">Ferretería</span>
+        <span class="svc-num">01</span>
+        <div class="svc-content">
+          <h4 class="svc-title">Ferretería</h4>
+          <p class="svc-desc">Herramientas, fijaciones, tuberías, pinturas, EPP y seguridad industrial.</p>
+        </div>
+      </div>
+
+      <!-- 02 Electrodomésticos -->
+      <div class="svc-col" data-svc="2">
+        <span class="svc-tag">Electro</span>
+        <span class="svc-num">02</span>
+        <div class="svc-content">
+          <h4 class="svc-title">Electrodomésticos</h4>
+          <p class="svc-desc">Televisores, refrigeradores, microondas, lavadoras y climatizadores.</p>
+        </div>
+      </div>
+
+      <!-- 03 Mueblería -->
+      <div class="svc-col" data-svc="3">
+        <span class="svc-tag">Mueblería</span>
+        <span class="svc-num">03</span>
+        <div class="svc-content">
+          <h4 class="svc-title">Mueblería</h4>
+          <p class="svc-desc">Escritorios, sillas, mesas, lockers, camarotes y estanterías industriales.</p>
+        </div>
+      </div>
+
+      <!-- 04 Equipamiento Industrial -->
+      <div class="svc-col" data-svc="4">
+        <span class="svc-tag">Industrial</span>
+        <span class="svc-num">04</span>
+        <div class="svc-content">
+          <h4 class="svc-title">Equipamiento Industrial</h4>
+          <p class="svc-desc">Generadores, compresores, equipos de limpieza y herramientas especializadas.</p>
+        </div>
+      </div>
+
+      <!-- 05 Tecnología -->
+      <div class="svc-col" data-svc="5">
+        <span class="svc-tag">Tecnología</span>
+        <span class="svc-num">05</span>
+        <div class="svc-content">
+          <h4 class="svc-title">Tecnología</h4>
+          <p class="svc-desc">Computadores, tablets, impresoras, redes, cámaras y telefonía.</p>
+        </div>
+      </div>
+
+      <!-- 06 Insumos de Faena -->
+      <div class="svc-col" data-svc="6">
+        <span class="svc-tag">Faena</span>
+        <span class="svc-num">06</span>
+        <div class="svc-content">
+          <h4 class="svc-title">Insumos de Faena</h4>
+          <p class="svc-desc">Higiene, vajilla, utensilios, señalética, oficina e insumos de campamento.</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -648,107 +717,42 @@
 
 
   <!-- ═══════════════════════════════════════
-       SERVICIOS
+       SERVICIOS (propuesta de valor)
   ═══════════════════════════════════════ -->
-  <section class="servicios-section" id="servicios">
-    <!-- Fondos de video dinámicos -->
-    <div id="svc-bg">
-      <div class="svc-bg-item svc-active" data-svc="1">
-        <video autoplay muted loop playsinline><source src="assets/videos/ferreteria.mov" type="video/mp4"></video>
-      </div>
-      <div class="svc-bg-item" data-svc="2">
-        <video muted loop playsinline><source src="assets/videos/electrodomesticos.mp4" type="video/mp4"></video>
-      </div>
-      <div class="svc-bg-item" data-svc="3">
-        <video muted loop playsinline><source src="assets/videos/muebleria.mp4" type="video/mp4"></video>
-      </div>
-      <div class="svc-bg-item" data-svc="4">
-        <video muted loop playsinline><source src="assets/videos/equipamiento-industrial.mp4" type="video/mp4"></video>
-      </div>
-      <div class="svc-bg-item" data-svc="5">
-        <video muted loop playsinline><source src="assets/videos/tecnologia.mov" type="video/mp4"></video>
-      </div>
-      <div class="svc-bg-item" data-svc="6">
-        <video muted loop playsinline><source src="assets/videos/insumos-de-faena.mov" type="video/mp4"></video>
-      </div>
+  <section class="valtrax-hero" id="servicios">
+    <div class="hero-video-wrap">
+      <video class="active" autoplay muted playsinline>
+        <source src="assets/videos inicio/hero1.mp4" type="video/mp4">
+      </video>
+      <video muted playsinline>
+        <source src="assets/videos inicio/hero2.mp4" type="video/mp4">
+      </video>
+      <video muted playsinline>
+        <source src="assets/videos inicio/hero3.mp4" type="video/mp4">
+      </video>
+      <video muted playsinline>
+        <source src="assets/videos inicio/7084d926-d309-4235-b3b1-abec788fb354-2026-05-01.mp4" type="video/mp4">
+      </video>
     </div>
-
-    <!-- Encabezado -->
-    <div class="svc-header">
-      <div class="row align-items-end" style="max-width:1400px;margin:0 auto;">
-        <div class="col-lg-7" data-aos="fade-right">
-          <div class="section-label" style="color:rgba(255,255,255,0.5);">Categorías de Insumos</div>
-          <h2 class="section-title" style="color:#fff;">Todo lo que tu operación necesita, en un solo lugar.</h2>
-        </div>
-        <div class="col-lg-5" data-aos="fade-left">
-          <p class="section-body" style="color:rgba(255,255,255,0.58);">Si existe en el mercado, lo conseguimos. Despachamos directo a tu faena, campamento u oficina.</p>
-        </div>
-      </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Minería del Norte de Chile</div>
+      <h1 class="hero-headline">Cuando la urgencia<br><span class="hero-shine">no espera.</span></h1>
+      <p class="hero-sub">Tu partner estratégico en la provisión de insumos industriales, ferretería y equipamiento. Respondemos donde y cuando la operación minera lo exige.</p>
     </div>
-
-    <!-- Grid de columnas -->
-    <div class="svc-grid">
-
-      <!-- 01 Ferretería -->
-      <div class="svc-col" data-svc="1">
-        <span class="svc-tag">Ferretería</span>
-        <span class="svc-num">01</span>
-        <div class="svc-content">
-          <h4 class="svc-title">Ferretería</h4>
-          <p class="svc-desc">Herramientas, fijaciones, tuberías, pinturas, EPP y seguridad industrial.</p>
-        </div>
-      </div>
-
-      <!-- 02 Electrodomésticos -->
-      <div class="svc-col" data-svc="2">
-        <span class="svc-tag">Electro</span>
-        <span class="svc-num">02</span>
-        <div class="svc-content">
-          <h4 class="svc-title">Electrodomésticos</h4>
-          <p class="svc-desc">Televisores, refrigeradores, microondas, lavadoras y climatizadores.</p>
-        </div>
-      </div>
-
-      <!-- 03 Mueblería -->
-      <div class="svc-col" data-svc="3">
-        <span class="svc-tag">Mueblería</span>
-        <span class="svc-num">03</span>
-        <div class="svc-content">
-          <h4 class="svc-title">Mueblería</h4>
-          <p class="svc-desc">Escritorios, sillas, mesas, lockers, camarotes y estanterías industriales.</p>
-        </div>
-      </div>
-
-      <!-- 04 Equipamiento Industrial -->
-      <div class="svc-col" data-svc="4">
-        <span class="svc-tag">Industrial</span>
-        <span class="svc-num">04</span>
-        <div class="svc-content">
-          <h4 class="svc-title">Equipamiento Industrial</h4>
-          <p class="svc-desc">Generadores, compresores, equipos de limpieza y herramientas especializadas.</p>
-        </div>
-      </div>
-
-      <!-- 05 Tecnología -->
-      <div class="svc-col" data-svc="5">
-        <span class="svc-tag">Tecnología</span>
-        <span class="svc-num">05</span>
-        <div class="svc-content">
-          <h4 class="svc-title">Tecnología</h4>
-          <p class="svc-desc">Computadores, tablets, impresoras, redes, cámaras y telefonía.</p>
-        </div>
-      </div>
-
-      <!-- 06 Insumos de Faena -->
-      <div class="svc-col" data-svc="6">
-        <span class="svc-tag">Faena</span>
-        <span class="svc-num">06</span>
-        <div class="svc-content">
-          <h4 class="svc-title">Insumos de Faena</h4>
-          <p class="svc-desc">Higiene, vajilla, utensilios, señalética, oficina e insumos de campamento.</p>
-        </div>
-      </div>
-
+    <div class="hero-actions">
+      <a href="#contacto" class="btn-primary-vx">
+        <i class="fas fa-bolt"></i> Solicitar Cotización
+      </a>
+      <a href="#proceso" class="btn-outline-vx">
+        Nuestro Proceso <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+    <div class="hero-video-dots">
+      <div class="hvd active" data-index="0"></div>
+      <div class="hvd" data-index="1"></div>
+      <div class="hvd" data-index="2"></div>
+      <div class="hvd" data-index="3"></div>
     </div>
   </section>
 
@@ -1109,33 +1113,55 @@ $('a[href^="#"]').on('click', function(e) {
   }
 });
 
-// ─── SERVICIOS: VIDEO DE FONDO DINÁMICO AL HOVER ───
+// ─── INICIO / CATEGORÍAS: VIDEO DINÁMICO + ROTACIÓN AUTOMÁTICA ───
 (function() {
-  var bgItems = document.querySelectorAll('#svc-bg .svc-bg-item');
-  var cols    = document.querySelectorAll('.svc-col');
-  var current = 1; // primer ítem activo por defecto
+  var bgItems    = document.querySelectorAll('#svc-bg .svc-bg-item');
+  var cols       = document.querySelectorAll('.svc-col');
+  var total      = cols.length;
+  var currentCol = 0;   // índice 0-based
+  var mouseOver  = false;
+  var timer      = null;
 
-  function activateBg(idx) {
+  function activateBg(svcId) {
     bgItems.forEach(function(el) { el.classList.remove('svc-active'); });
-    var target = document.querySelector('#svc-bg .svc-bg-item[data-svc="' + idx + '"]');
+    var target = document.querySelector('#svc-bg .svc-bg-item[data-svc="' + svcId + '"]');
     if (target) {
       target.classList.add('svc-active');
       var vid = target.querySelector('video');
       if (vid && vid.paused) { vid.play().catch(function(){}); }
     }
-    current = idx;
   }
 
-  cols.forEach(function(col) {
+  function activateCol(idx) {
+    cols.forEach(function(c) { c.classList.remove('svc-selected'); });
+    if (cols[idx]) {
+      cols[idx].classList.add('svc-selected');
+      activateBg(cols[idx].getAttribute('data-svc'));
+    }
+    currentCol = idx;
+  }
+
+  function startTimer() {
+    clearInterval(timer);
+    timer = setInterval(function() {
+      if (!mouseOver) activateCol((currentCol + 1) % total);
+    }, 3000);
+  }
+
+  cols.forEach(function(col, i) {
     col.addEventListener('mouseenter', function() {
-      var idx = this.getAttribute('data-svc');
-      if (idx != current) activateBg(idx);
+      mouseOver = true;
+      activateCol(i);
+    });
+    col.addEventListener('mouseleave', function() {
+      mouseOver = false;
+      startTimer(); // reinicia el contador de 3 s desde la columna actual
     });
   });
 
-  // Asegura que el video 1 esté corriendo desde el inicio
-  var firstVid = document.querySelector('#svc-bg .svc-bg-item[data-svc="1"] video');
-  if (firstVid) firstVid.play().catch(function(){});
+  // Inicio: Ferretería seleccionada, luego rota cada 3 s
+  activateCol(0);
+  startTimer();
 })();
 
 // ─── MOBILE MENU ───
