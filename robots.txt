@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /uploads/
+
+Sitemap: https://moiseskahn.github.io/valtrax-website/sitemap.xml
